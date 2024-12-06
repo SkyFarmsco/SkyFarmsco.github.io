@@ -427,7 +427,7 @@ function Technology() {
   );
 }
 
-// Products Section
+// Product Data
 const productsData = [
   {
     category: "Leafy Greens",
@@ -436,11 +436,13 @@ const productsData = [
         name: "Fresh Lettuce",
         image: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?auto=format&fit=crop&q=80",
         description: "Crisp and nutritious lettuce varieties grown in our vertical farms.",
+        harvestCycle: "Available year-round",
       },
       {
         name: "Baby Spinach",
         image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&q=80",
         description: "Tender baby spinach leaves packed with nutrients.",
+        harvestCycle: "Available year-round",
       },
     ],
   },
@@ -451,78 +453,74 @@ const productsData = [
         name: "Fresh Basil",
         image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&q=80",
         description: "Aromatic basil grown in perfect conditions.",
+        harvestCycle: "Available year-round",
       },
       {
         name: "Mint",
         image: "https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?auto=format&fit=crop&q=80",
         description: "Fresh mint leaves for culinary and beverage use.",
+        harvestCycle: "Available year-round",
       },
     ],
   },
 ];
 
-function Products() {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: false });
+// B2B Lead Form Component
+function LeadForm() {
+  const [formData, setFormData] = useState({
+    businessName: '',
+    contactDetails: '',
+    orderSize: '',
+    preferredProduce: '',
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission (e.g., send to API)
+  };
 
   return (
-    <section className="bg-gray-50 py-24 sm:py-32" ref={ref}>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Our Products
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-gray-600">
-            Discover our range of fresh, sustainably grown produce
-          </p>
-        </m.div>
+    <form onSubmit={handleSubmit} className="lead-form">
+      <input type="text" name="businessName" placeholder="Business Name" onChange={handleChange} required />
+      <input type="email" name="contactDetails" placeholder="Contact Details" onChange={handleChange} required />
+      <input type="text" name="orderSize" placeholder="Approximate Order Size" onChange={handleChange} required />
+      <select name="preferredProduce" onChange={handleChange} required>
+        <option value="">Select Produce</option>
+        {productsData.flatMap(category => category.items.map(item => (
+          <option key={item.name} value={item.name}>{item.name}</option>
+        )))}
+      </select>
+      <button type="submit">Request a Quote</button>
+    </form>
+  );
+}
 
-        <div className="mt-16">
-          <Tabs defaultValue={productsData[0].category} className="w-full">
-            <TabsList className="flex justify-center space-x-4 mb-8">
-              {productsData.map((cat) => (
-                <TabsTrigger
-                  key={cat.category}
-                  value={cat.category}
-                  className="px-4 py-2 text-sm font-medium"
-                >
-                  {cat.category}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-            {productsData.map((cat, catIdx) => (
-              <TabsContent key={cat.category} value={cat.category}>
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
-                  {cat.items.map((item, i) => (
-                    <m.div
-                      key={item.name}
-                      initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-                      animate={inView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.6, delay: i * 0.2 }}
-                      className="overflow-hidden rounded-lg bg-white shadow-lg"
-                    >
-                      <div className="aspect-w-16 aspect-h-9">
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="h-64 w-full object-cover"
-                        />
-                      </div>
-                      <div className="p-6">
-                        <h3 className="text-lg font-semibold text-gray-900">{item.name}</h3>
-                        <p className="mt-2 text-gray-600">{item.description}</p>
-                      </div>
-                    </m.div>
-                  ))}
+// Products Section
+function Products() {
+  return (
+    <section className="bg-gray-50 py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Products</h2>
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {productsData.map((category) => (
+            <div key={category.category}>
+              <h3 className="text-lg font-semibold">{category.category}</h3>
+              {category.items.map((item) => (
+                <div key={item.name} className="product-card">
+                  <img src={item.image} alt={item.name} />
+                  <h4>{item.name}</h4>
+                  <p>{item.description}</p>
+                  <p>{item.harvestCycle}</p>
                 </div>
-              </TabsContent>
-            ))}
-          </Tabs>
+              ))}
+            </div>
+          ))}
         </div>
+        <LeadForm />
       </div>
     </section>
   );

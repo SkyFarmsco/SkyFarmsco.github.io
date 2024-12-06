@@ -4,11 +4,43 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-    <script type="module" crossorigin src="/assets/index-fs2iv9is.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-ToQ2vs9O.css">
+    
+    <!-- Add fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Add meta tags for SEO -->
+    <meta name="description" content="SkyFarms - Innovative vertical farming solutions for sustainable agriculture">
+    <meta name="keywords" content="vertical farming, sustainable agriculture, hydroponics, urban farming">
+    
+    <title>SkyFarms - Sustainable Vertical Farming Solutions</title>
+    
+    <!-- Add preload for critical assets -->
+    <link rel="preload" href="/assets/index-ToQ2vs9O.css" as="style">
+    <link rel="preload" href="/assets/index-fs2iv9is.js" as="script">
+    
+    <!-- Add stylesheets -->
+    <link rel="stylesheet" href="/assets/index-ToQ2vs9O.css">
   </head>
   <body>
+    <!-- Add loading state -->
+    <div id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+      <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-green-600"></div>
+    </div>
+    
+    <!-- Root element -->
     <div id="root"></div>
+    
+    <!-- Add script -->
+    <script type="module" src="/assets/index-fs2iv9is.js"></script>
+    
+    <!-- Add noscript fallback -->
+    <noscript>
+      <div class="flex min-h-screen items-center justify-center p-4 text-center">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">JavaScript Required</h1>
+          <p class="mt-4 text-gray-600">Please enable JavaScript to view this website.</p>
+        </div>
+      </div>
+    </noscript>
   </body>
 </html>
