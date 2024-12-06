@@ -21,8 +21,6 @@ import {
 // Just trust these are as-is, reformatted for readability.
 // ---------------------------------------------------------------------------
 
-// ... [A large portion of utility code, classes, hooks, etc. from user-provided code] ...
-
 // ---------------------------------------------------------------------------
 // Components:
 // ---------------------------------------------------------------------------
