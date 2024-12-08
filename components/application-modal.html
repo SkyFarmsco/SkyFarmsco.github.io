@@ -1,0 +1,52 @@
+<div id="application-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Apply for <span class="job-title"></span></h2>
+            <button class="close-modal">&times;</button>
+        </div>
+        <form id="application-form" class="application-form">
+            <div class="form-group">
+                <label for="full-name">Full Name *</label>
+                <input type="text" id="full-name" name="full-name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+                <label for="resume">Resume/CV *</label>
+                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                <small>Accepted formats: PDF, DOC, DOCX (Max 5MB)</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="cover-letter">Cover Letter</label>
+                <textarea id="cover-letter" name="cover-letter" rows="5"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="linkedin">LinkedIn Profile</label>
+                <input type="url" id="linkedin" name="linkedin">
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="terms" required>
+                    I agree to the processing of my personal data
+                </label>
+            </div>
+            
+            <button type="submit" class="btn submit-btn">
+                <span class="btn-text">Submit Application</span>
+                <span class="btn-loader"></span>
+            </button>
+        </form>
+    </div>
+</div> 

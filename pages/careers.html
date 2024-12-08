@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkyFarms | Careers</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+    <!-- Include navigation -->
+    <main class="careers-page">
+        <section class="hero-careers parallax" data-speed="0.5">
+            <div class="hero-content animate-on-scroll">
+                <h1>Join Our Mission</h1>
+                <p>Help us revolutionize sustainable agriculture</p>
+            </div>
+        </section>
+
+        <section class="careers-content">
+            <div class="container">
+                <div class="careers-search">
+                    <div class="search-filters">
+                        <input type="text" id="job-search" placeholder="Search positions...">
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-department="all">All Departments</button>
+                            <button class="filter-btn" data-department="engineering">Engineering</button>
+                            <button class="filter-btn" data-department="agriculture">Agriculture</button>
+                            <button class="filter-btn" data-department="operations">Operations</button>
+                            <button class="filter-btn" data-department="business">Business</button>
+                        </div>
+                        <div class="location-filter">
+                            <select id="location-select">
+                                <option value="all">All Locations</option>
+                                <option value="dubai">Dubai, UAE</option>
+                                <option value="abudhabi">Abu Dhabi, UAE</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="jobs-grid">
+                    <!-- Job cards will be dynamically populated -->
+                </div>
+
+                <template id="job-card-template">
+                    <div class="job-card animate-on-scroll">
+                        <div class="job-header">
+                            <h3 class="job-title"></h3>
+                            <span class="job-type"></span>
+                        </div>
+                        <div class="job-details">
+                            <span class="job-location"></span>
+                            <span class="job-department"></span>
+                        </div>
+                        <p class="job-description"></p>
+                        <div class="job-footer">
+                            <button class="btn apply-btn">Apply Now</button>
+                            <span class="posted-date"></span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </section>
+
+        <section class="benefits-section">
+            <div class="container">
+                <h2>Why Join SkyFarms?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card animate-on-scroll">
+                        <div class="benefit-icon">
+                            <img src="/images/icons/growth.svg" alt="Growth">
+                        </div>
+                        <h3>Career Growth</h3>
+                        <p>Continuous learning and development opportunities</p>
+                    </div>
+                    <!-- Add more benefit cards -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Include footer -->
+    <script src="/js/careers.js"></script>
+</body>
+</html> 

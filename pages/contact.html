@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkyFarms | Contact Us</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Include navigation -->
+    <main class="contact-page">
+        <section class="hero-contact parallax" data-speed="0.5">
+            <div class="hero-content animate-on-scroll">
+                <h1>Get in Touch</h1>
+                <p>Let's discuss how we can work together</p>
+            </div>
+        </section>
+
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-form-wrapper animate-on-scroll">
+                        <h2>Send us a Message</h2>
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required 
+                                    data-validation="length" data-validation-length="min2">
+                                <span class="error-message"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required
+                                    data-validation="email">
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="business">Business Inquiry</option>
+                                    <option value="partnership">Partnership</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" required
+                                    data-validation="length" data-validation-length="min10"></textarea>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <button type="submit" class="btn submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loader"></span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info animate-on-scroll">
+                        <div class="info-card">
+                            <h3>Our Locations</h3>
+                            <div class="location">
+                                <h4>Dubai Headquarters</h4>
+                                <p>Dubai Silicon Oasis</p>
+                                <p>Dubai, UAE</p>
+                            </div>
+                            <div class="location">
+                                <h4>Innovation Center</h4>
+                                <p>Dubai Science Park</p>
+                                <p>Dubai, UAE</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>Contact Information</h3>
+                            <ul class="contact-list">
+                                <li>
+                                    <i class="icon-email"></i>
+                                    <a href="mailto:info@skyfarms.com">info@skyfarms.com</a>
+                                </li>
+                                <li>
+                                    <i class="icon-phone"></i>
+                                    <a href="tel:+97144123456">+971 4 412 3456</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div id="contact-map" class="contact-map"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Include footer -->
+    
+    <!-- Leaflet Map JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="/js/contact.js"></script>
+</body>
+</html> 
