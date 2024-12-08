@@ -1,46 +1,231 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="description" content="SkyFarms - Reimagining Urban Agriculture for Sustainable Cities" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Add fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <!-- Add meta tags for SEO -->
-    <meta name="description" content="SkyFarms - Innovative vertical farming solutions for sustainable agriculture">
-    <meta name="keywords" content="vertical farming, sustainable agriculture, hydroponics, urban farming">
-    
-    <title>SkyFarms - Sustainable Vertical Farming Solutions</title>
-    
-    <!-- Add preload for critical assets -->
-    <link rel="preload" href="/csscode.css" as="style">
-    <link rel="preload" href="/javacode.js" as="script">
-    
-    <!-- Add stylesheets -->
-    <link rel="stylesheet" href="/csscode.css">
-  </head>
-  <body>
-    <!-- Add loading state -->
-    <div id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
-      <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-green-600"></div>
-    </div>
-    
-    <!-- Root element -->
-    <div id="root"></div>
-    
-    <!-- Add script -->
-    <script type="module" src="/javacode.js"></script>
-    
-    <!-- Add noscript fallback -->
-    <noscript>
-      <div class="flex min-h-screen items-center justify-center p-4 text-center">
-        <div>
-          <h1 class="text-2xl font-bold text-gray-900">JavaScript Required</h1>
-          <p class="mt-4 text-gray-600">Please enable JavaScript to view this website.</p>
+    <title>SkyFarms | Sustainable Urban Agriculture</title>
+    <!-- Add favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <!-- Google Fonts (example) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <!-- External CSS (to be added later) -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header id="header">
+        <nav class="navbar">
+            <div class="logo">
+                <!-- Company Logo -->
+                <a href="index.html"><img src="images/skyfarms-logo.png" alt="SkyFarms Logo" /></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#impact">Global Impact</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <!-- Mobile menu toggle (for JS) -->
+            <div class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Reimagining Urban Agriculture</h1>
+            <p>SkyFarms integrates vertical farming, AI, and sustainability to feed cities with fresh, local produce.</p>
+            <a href="#about" class="btn">Learn More</a>
         </div>
-      </div>
-    </noscript>
-  </body>
+        <div class="hero-image">
+            <!-- Hero image or illustration -->
+            <img src="images/hero-vertical-farm.jpg" alt="Vertical Farm" />
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2>About SkyFarms</h2>
+            <p>
+                SkyFarms is transforming how cities produce and consume food. Leveraging vertical farming, hydroponics, aeroponics, and renewable energy, we drastically reduce water use, minimize land footprint, and deliver pesticide-free, nutrient-rich produce year-round.
+            </p>
+            <div class="about-features">
+                <div class="feature">
+                    <img src="images/icon-water-saving.svg" alt="Water Saving Icon" />
+                    <h3>90% Water Savings</h3>
+                    <p>By using hydroponics & aeroponics, we conserve up to 90% more water than traditional farming.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/icon-fresh-produce.svg" alt="Fresh Produce Icon" />
+                    <h3>Year-Round Freshness</h3>
+                    <p>Our climate-controlled environments ensure consistent yield and quality every season.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/icon-circular-economy.svg" alt="Circular Economy Icon" />
+                    <h3>Circular Economy</h3>
+                    <p>We recycle organic waste into nutrient-rich fertilizers, closing the loop for sustainable growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="section-padding">
+        <div class="container">
+            <h2>Our Technology</h2>
+            <p>
+                At SkyFarms, technology is at the heart of everything we do. From AI-driven sensors that optimize plant growth, to IoT-enabled environmental controls, we harness data to maximize yields, minimize inputs, and enhance energy efficiency.
+            </p>
+            <div class="technology-grid">
+                <div class="tech-item">
+                    <img src="images/tech-ai-sensors.jpg" alt="AI Sensors" />
+                    <h3>AI & IoT Sensors</h3>
+                    <p>Real-time monitoring of humidity, temperature, and nutrients for consistent quality.</p>
+                </div>
+                <div class="tech-item">
+                    <img src="images/tech-renewable.jpg" alt="Renewable Energy" />
+                    <h3>Renewable Energy</h3>
+                    <p>Solar panels, mirrors, and efficient LED lighting minimize our carbon footprint.</p>
+                </div>
+                <div class="tech-item">
+                    <img src="images/tech-circular.jpg" alt="Circular Economy Process" />
+                    <h3>Circular Nutrient Cycles</h3>
+                    <p>Upcycling organic waste and using natural CO₂ exchange enhance plant growth and sustainability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="section-padding">
+        <div class="container">
+            <h2>Our Solutions</h2>
+            <p>
+                We provide modular vertical farming units, consulting services, and supply contracts to businesses, developers, and culinary destinations seeking fresh, local, and eco-friendly produce.
+            </p>
+            <div class="solutions-list">
+                <article class="solution">
+                    <h3>Modular Farm Units</h3>
+                    <p>Scalable vertical farms that fit seamlessly into urban landscapes: rooftops, basements, or stand-alone facilities.</p>
+                </article>
+                <article class="solution">
+                    <h3>Consulting & Integration</h3>
+                    <p>We advise property developers, hotels, and retail chains on integrating sustainable farming solutions on-site.</p>
+                </article>
+                <article class="solution">
+                    <h3>Premium Produce Supply</h3>
+                    <p>Direct-to-restaurant and subscription-based deliveries ensuring the freshest produce at competitive prices.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Impact Section -->
+    <section id="impact" class="section-padding">
+        <div class="container">
+            <h2>Global Impact</h2>
+            <p>
+                SkyFarms aims to expand throughout MENA, the UAE, and the Global South, addressing food security, water scarcity, and climate challenges. Our roadmap includes partnerships with NGOs, government agencies, and local communities to foster resilient, localized food systems.
+            </p>
+            <div class="impact-stats">
+                <div class="stat">
+                    <h3>20%</h3>
+                    <p>Projected CAGR in MENA’s vertical farming market over the next 5 years.</p>
+                </div>
+                <div class="stat">
+                    <h3>90% Less Water</h3>
+                    <p>Compared to traditional agriculture, improving sustainability in arid regions.</p>
+                </div>
+                <div class="stat">
+                    <h3>Year-Round Harvests</h3>
+                    <p>Ensuring food security and consistent supply, even in harsh climates.</p>
+                </div>
+            </div>
+            <div class="impact-map">
+                <!-- Insert a world map image highlighting target regions -->
+                <img src="images/world-map-target-regions.png" alt="Global Target Regions" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section-padding">
+        <div class="container">
+            <h2>Our Team</h2>
+            <p>Led by agricultural experts, engineers, and sustainability advocates, our multidisciplinary team drives innovation and scalability.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="images/team-member1.jpg" alt="Team Member 1" />
+                    <h3>Amina El-Haddad</h3>
+                    <p>CEO & Co-Founder</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team-member2.jpg" alt="Team Member 2" />
+                    <h3>Karim Bensalem</h3>
+                    <p>CTO & Co-Founder</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team-member3.jpg" alt="Team Member 3" />
+                    <h3>Dr. Fatima Larbi</h3>
+                    <p>Chief Agronomist</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team-member4.jpg" alt="Team Member 4" />
+                    <h3>Omar Zidane</h3>
+                    <p>Operations Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Interested in collaborating, investing, or learning more? Reach out to us.</p>
+            <form action="#" method="post" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="images/skyfarms-logo.png" alt="SkyFarms Logo" />
+            </div>
+            <p>&copy; 2024 SkyFarms. All rights reserved.</p>
+            <ul class="social-links">
+                <li><a href="#"><img src="images/icon-facebook.svg" alt="Facebook" /></a></li>
+                <li><a href="#"><img src="images/icon-twitter.svg" alt="Twitter" /></a></li>
+                <li><a href="#"><img src="images/icon-linkedin.svg" alt="LinkedIn" /></a></li>
+                <li><a href="#"><img src="images/icon-instagram.svg" alt="Instagram" /></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- JS (to be added later) -->
+    <script src="js/main.js"></script>
+</body>
 </html>
