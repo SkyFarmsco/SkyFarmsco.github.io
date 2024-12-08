@@ -1,20 +1,27 @@
 class ComponentLoader {
     static async loadComponents() {
-        await this.loadHeader();
-        await this.loadFooter();
+        const basePath = location.pathname.includes('/pages/') ? '..' : '.';
+        await this.loadHeader(basePath);
+        await this.loadFooter(basePath);
         this.initializeNavigation();
     }
 
-    static async loadHeader() {
-        const response = await fetch('/components/header.html');
+    static async loadHeader(basePath) {
+        const response = await fetch(`${basePath}/components/header.html`);
         const headerHtml = await response.text();
-        document.body.insertAdjacentHTML('afterbegin', headerHtml);
+        // Replace paths in headerHtml
+        const updatedHtml = headerHtml.replace(/src="\/images/g, `src="${basePath}/images`)
+                                    .replace(/href="\/pages/g, `href="${basePath}/pages`);
+        document.body.insertAdjacentHTML('afterbegin', updatedHtml);
     }
 
-    static async loadFooter() {
-        const response = await fetch('/components/footer.html');
+    static async loadFooter(basePath) {
+        const response = await fetch(`${basePath}/components/footer.html`);
         const footerHtml = await response.text();
-        document.body.insertAdjacentHTML('beforeend', footerHtml);
+        // Replace paths in footerHtml
+        const updatedHtml = footerHtml.replace(/src="\/images/g, `src="${basePath}/images`)
+                                    .replace(/href="\/pages/g, `href="${basePath}/pages`);
+        document.body.insertAdjacentHTML('beforeend', updatedHtml);
     }
 
     static initializeNavigation() {

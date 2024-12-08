@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Sitemap: https://skyfarms.com/sitemap.xml 
+Sitemap: https://skyfarmsco.github.io/sitemap.xml 
