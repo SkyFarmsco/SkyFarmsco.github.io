@@ -24,11 +24,21 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     
-    <!-- Stylesheets -->
+    <!-- Core CSS -->
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/animations.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
     <link rel="stylesheet" href="./css/home.css" />
+    
+    <!-- Component CSS -->
+    <link rel="stylesheet" href="./css/components/features.css" />
+    <link rel="stylesheet" href="./css/components/gallery.css" />
+    <link rel="stylesheet" href="./css/components/jobs.css" />
+    <link rel="stylesheet" href="./css/components/stats.css" />
+    <link rel="stylesheet" href="./css/components/team.css" />
+    <link rel="stylesheet" href="./css/components/testimonials.css" />
+    
+    <!-- Theme CSS -->
     <link rel="stylesheet" href="./css/themes/light.css" id="theme-stylesheet" />
 </head>
 <body>
@@ -39,7 +49,7 @@
         <div class="hero-slider" data-autoplay="true">
             <div class="slide active">
                 <video autoplay muted loop playsinline class="hero-video">
-                    <source src="/images/hero/hero-video.mp4" type="video/mp4">
+                    <source src="./images/hero/hero-video.mp4" type="video/mp4">
                 </video>
                 <div class="hero-content animate-on-scroll">
                     <h1 class="mega-title">Growing Tomorrow's Food, Today</h1>
@@ -107,7 +117,7 @@
                 <div class="solution-cards">
                     <div class="solution-card animate-on-scroll">
                         <div class="solution-image">
-                            <img src="/images/solutions/compact.jpg" alt="SkyFarm Compact">
+                            <img src="./images/solutions/compact.jpg" alt="SkyFarm Compact">
                             <div class="solution-overlay">
                                 <span class="solution-tag">Most Popular</span>
                             </div>
@@ -120,7 +130,7 @@
                                 <li>Automated climate control</li>
                                 <li>IoT monitoring system</li>
                             </ul>
-                            <a href="/pages/products.html#compact" class="btn btn-outline">Learn More</a>
+                            <a href="./pages/products.html#compact" class="btn btn-outline">Learn More</a>
                         </div>
                     </div>
                     <!-- More solution cards -->
@@ -213,7 +223,7 @@
             <div class="solutions-grid">
                 <div class="solution-card animate-on-scroll">
                     <div class="solution-icon">
-                        <img src="/images/icons/compact.svg" alt="Compact Solutions">
+                        <img src="./images/icons/compact.svg" alt="Compact Solutions">
                     </div>
                     <h3>SkyFarm Compact</h3>
                     <p>Perfect for restaurants and small businesses</p>
@@ -222,7 +232,7 @@
                         <li>Plug-and-play installation</li>
                         <li>Smart monitoring system</li>
                     </ul>
-                    <a href="/pages/products.html#compact" class="btn btn-outline">Learn More</a>
+                    <a href="./pages/products.html#compact" class="btn btn-outline">Learn More</a>
                 </div>
                 <!-- More solution cards -->
             </div>
@@ -322,17 +332,23 @@
     </button>
 
     <!-- Scripts -->
-    <script type="module" src="./js/utils/validation.js"></script>
-    <script type="module" src="./js/utils/notifications.js"></script>
-    <script type="module" src="./js/components.js"></script>
+    <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/animations.js"></script>
     <script type="module" src="./js/slider.js"></script>
     <script type="module" src="./js/parallax.js"></script>
     <script type="module" src="./js/theme.js"></script>
     <script type="module" src="./js/home.js"></script>
-    <script type="module" src="./js/main.js"></script>
+    
+    <!-- Utility Scripts -->
+    <script type="module" src="./js/utils/validation.js"></script>
+    <script type="module" src="./js/utils/notifications.js"></script>
+    
+    <!-- Component Scripts -->
+    <script type="module" src="./js/components.js"></script>
     <script type="module" src="./js/components/Testimonial.js"></script>
     <script type="module" src="./js/components/NewsCard.js"></script>
+    
+    <!-- Service Scripts -->
     <script type="module" src="./js/services/testimonialService.js"></script>
     <script type="module" src="./js/services/newsService.js"></script>
 </body>

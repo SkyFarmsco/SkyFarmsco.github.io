@@ -1,3 +1,18 @@
+:root {
+    --primary-color: #4caf50;
+    --primary-dark: #3d8b40;
+    --primary-light: #81c784;
+    --background-color: #ffffff;
+    --surface-color: #f5f5f5;
+    --text-color: #333333;
+    --text-secondary: #666666;
+    --border-color: #dddddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Import component styles */
+@import 'components.css';
+
 /* Basic Reset */
 * {
     margin: 0;

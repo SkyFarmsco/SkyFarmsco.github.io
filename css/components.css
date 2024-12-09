@@ -1,0 +1,7 @@
+/* Import all component styles */
+@import 'components/features.css';
+@import 'components/gallery.css';
+@import 'components/jobs.css';
+@import 'components/stats.css';
+@import 'components/team.css';
+@import 'components/testimonials.css'; 
