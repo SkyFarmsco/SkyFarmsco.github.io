@@ -1,17 +1,49 @@
 /* Light theme variables and styles */
 :root {
+    /* Primary Colors */
     --primary-color: #4caf50;
     --primary-dark: #3d8b40;
     --primary-light: #81c784;
+    
+    /* Background Colors */
     --background-color: #ffffff;
     --surface-color: #f5f5f5;
+    --card-bg: #ffffff;
+    --modal-bg: #ffffff;
+    
+    /* Text Colors */
     --text-color: #333333;
-    --text-light: #666666;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --text-inverse: #ffffff;
+    
+    /* Border Colors */
     --border-color: #dddddd;
+    --border-light: #eeeeee;
+    --divider-color: #f0f0f0;
+    
+    /* Shadow Colors */
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+    
+    /* Status Colors */
     --success-color: #4caf50;
     --error-color: #f44336;
     --warning-color: #ff9800;
     --info-color: #2196f3;
-    /* Add more variables */
+    
+    /* Overlay Colors */
+    --overlay-light: rgba(255, 255, 255, 0.8);
+    --overlay-dark: rgba(0, 0, 0, 0.5);
+    
+    /* Specific Component Colors */
+    --nav-bg: #ffffff;
+    --footer-bg: #333333;
+    --hero-overlay: rgba(0, 0, 0, 0.5);
+    --card-hover-bg: #f8f8f8;
+    --input-bg: #ffffff;
+    --input-border: #dddddd;
+    --button-hover: #3d8b40;
+    --tag-bg: #e8f5e9;
 } 

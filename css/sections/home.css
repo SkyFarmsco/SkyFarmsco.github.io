@@ -1,37 +1,48 @@
 /* Solutions Showcase */
 .solutions-showcase {
     overflow: hidden;
+    position: relative;
+    background: var(--surface-color);
+    padding: var(--space-xxl) 0;
 }
 
 .solution-cards {
     display: flex;
-    gap: 2rem;
-    margin: 3rem 0;
-    transition: transform 0.3s ease;
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0;
+    transition: transform var(--transition-base);
 }
 
 .solution-card {
-    flex: 0 0 350px;
+    flex: 0 0 clamp(280px, 30vw, 350px);
     background: var(--background-color);
-    border-radius: 10px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 2px 10px var(--shadow-color);
-    transition: transform 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base);
+    position: relative;
 }
 
 .solution-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
 }
 
 .solution-image {
     position: relative;
     height: 200px;
+    background: var(--surface-color);
 }
 
 .solution-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform var(--transition-base);
+}
+
+.solution-card:hover .solution-image img {
+    transform: scale(1.05);
 }
 
 .solution-overlay {
@@ -42,25 +53,31 @@
 
 .solution-tag {
     background: var(--primary-color);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    color: var(--text-inverse);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
 }
 
 .solution-content {
-    padding: 1.5rem;
+    padding: var(--space-lg);
 }
 
 .solution-features {
     list-style: none;
-    margin: 1rem 0;
+    margin: var(--space-md) 0;
 }
 
 .solution-features li {
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
+    margin-bottom: var(--space-xs);
+    padding-left: var(--space-md);
     position: relative;
+    transition: transform var(--transition-base);
+}
+
+.solution-features li:hover {
+    transform: translateX(5px);
 }
 
 .solution-features li::before {
@@ -68,29 +85,37 @@
     position: absolute;
     left: 0;
     color: var(--primary-color);
+    transition: transform var(--transition-base);
+}
+
+.solution-features li:hover::before {
+    transform: scale(1.2);
 }
 
 /* Partners Section */
 .partners-slider {
-    margin: 3rem 0;
+    margin: var(--space-xl) 0;
     overflow: hidden;
+    position: relative;
 }
 
 .partners-track {
     display: flex;
     animation: scroll 30s linear infinite;
+    will-change: transform;
 }
 
 .partner-logo {
     flex: 0 0 200px;
     height: 80px;
-    margin: 0 2rem;
+    margin: 0 var(--space-lg);
     opacity: 0.7;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-base);
 }
 
 .partner-logo:hover {
     opacity: 1;
+    transform: scale(1.05);
 }
 
 .partner-logo img {
@@ -104,30 +129,39 @@
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                 url('../images/newsletter-bg.jpg') no-repeat center center;
     background-size: cover;
-    color: white;
-    padding: 6rem 0;
+    color: var(--text-inverse);
+    padding: var(--space-xxl) 0;
+    position: relative;
 }
 
 .newsletter-form {
     max-width: 500px;
-    margin: 2rem auto;
+    margin: var(--space-lg) auto;
+    position: relative;
+    z-index: 1;
 }
 
 .newsletter-form .form-group {
     display: flex;
-    gap: 1rem;
+    gap: var(--space-sm);
 }
 
 .newsletter-form input {
     flex: 1;
-    padding: 1rem;
+    padding: var(--space-sm) var(--space-md);
     border: none;
-    border-radius: 4px;
+    border-radius: var(--radius-md);
+    transition: box-shadow var(--transition-base);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    box-shadow: var(--shadow-md);
 }
 
 .form-note {
-    margin-top: 1rem;
-    font-size: 0.9rem;
+    margin-top: var(--space-sm);
+    font-size: var(--font-size-sm);
     opacity: 0.8;
 }
 
@@ -149,10 +183,21 @@
     }
 
     .solution-card {
-        flex: 0 0 100%;
+        flex: 0 0 min(100%, 400px);
+        margin: 0 var(--space-sm);
     }
 
     .newsletter-form .form-group {
         flex-direction: column;
+    }
+
+    .solution-content {
+        padding: var(--space-md);
+    }
+
+    .partner-logo {
+        flex: 0 0 150px;
+        height: 60px;
+        margin: 0 var(--space-md);
     }
 } 

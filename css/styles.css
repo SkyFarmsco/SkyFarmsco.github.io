@@ -1,20 +1,91 @@
 :root {
+    /* Color System */
     --primary-color: #4caf50;
     --primary-dark: #3d8b40;
     --primary-light: #81c784;
+    --primary-rgb: 76, 175, 80;
+
+    /* Surface Colors */
     --background-color: #ffffff;
     --surface-color: #f5f5f5;
+    --surface-light: #fafafa;
+    --surface-dark: #eeeeee;
+
+    /* Text Colors */
     --text-color: #333333;
     --text-secondary: #666666;
+    --text-light: #999999;
+    --text-inverse: #ffffff;
+
+    /* Border Colors */
     --border-color: #dddddd;
+    --border-light: #eeeeee;
+    --divider-color: #f0f0f0;
+
+    /* Shadow System */
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-sm: 0 2px 4px var(--shadow-color);
+    --shadow-md: 0 4px 8px var(--shadow-color);
+    --shadow-lg: 0 8px 16px var(--shadow-color);
+    --shadow-xl: 0 12px 24px var(--shadow-color);
+
+    /* Status Colors */
+    --success-color: #4caf50;
+    --error-color: #f44336;
+    --warning-color: #ff9800;
+    --info-color: #2196f3;
+
+    /* Spacing System */
+    --space-xxs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-xxl: 4rem;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+    --radius-full: 9999px;
+
+    /* Typography */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+
+    /* Line Heights */
+    --line-height-tight: 1.25;
+    --line-height-base: 1.5;
+    --line-height-loose: 1.75;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 300ms ease;
+    --transition-slow: 500ms ease;
+
+    /* Z-index */
+    --z-negative: -1;
+    --z-elevate: 1;
+    --z-sticky: 100;
+    --z-drawer: 200;
+    --z-modal: 300;
+    --z-popover: 400;
+    --z-maximum: 999;
 }
 
 /* Import component styles */
 @import 'components.css';
 
 /* Basic Reset */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -23,9 +94,11 @@
 /* Typography & Body */
 body {
     font-family: 'Poppins', sans-serif;
-    color: #333;
-    background: #f9f9f9;
-    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--background-color);
+    line-height: var(--line-height-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Global Container and Utility Classes */
@@ -33,45 +106,56 @@ body {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 var(--space-sm);
 }
 
 .section-padding {
-    padding: 60px 0;
+    padding: var(--space-xxl) 0;
 }
 
 .btn {
     display: inline-block;
-    background: #4caf50;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 4px;
+    background: var(--primary-color);
+    color: var(--text-inverse);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
     text-decoration: none;
     font-weight: 500;
-    transition: background 0.3s ease;
+    transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
-    background: #43a142;
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
-.btn::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255,255,255,0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
+/* Button Variants */
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
 }
 
-.btn:hover::after {
-    width: 300px;
-    height: 300px;
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: var(--text-inverse);
+}
+
+.btn-text {
+    background: none;
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--primary-color);
+}
+
+.btn-text:hover {
+    background: var(--surface-light);
+    transform: none;
+    box-shadow: none;
 }
 
 /* Header & Navigation */
