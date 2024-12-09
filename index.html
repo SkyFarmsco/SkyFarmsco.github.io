@@ -172,11 +172,33 @@
                 <h2 class="section-title animate-on-scroll">Latest Updates</h2>
                 <p class="section-subtitle">Stay informed about our latest developments</p>
             </div>
-            <div class="news-grid">
-                <!-- News cards will be loaded dynamically -->
+            <div class="news-highlights">
+                <div class="highlight-carousel">
+                    <!-- Highlights will be loaded dynamically -->
+                </div>
+                <div class="carousel-controls">
+                    <button class="prev-slide"><i class="icon-arrow-left"></i></button>
+                    <div class="slide-indicators"></div>
+                    <button class="next-slide"><i class="icon-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="news-categories">
+                <div class="category-section">
+                    <h3>Latest Press Releases</h3>
+                    <div class="news-grid press-releases">
+                        <!-- Press releases will be loaded dynamically -->
+                    </div>
+                </div>
+                <div class="category-section">
+                    <h3>Research & Innovation</h3>
+                    <div class="news-grid research">
+                        <!-- Research news will be loaded dynamically -->
+                    </div>
+                </div>
             </div>
             <div class="text-center">
-                <a href="/pages/news.html" class="btn btn-outline">View All News</a>
+                <a href="/pages/news.html" class="btn btn-primary">View All Updates</a>
+                <a href="/pages/news.html#media" class="btn btn-outline">Media Coverage</a>
             </div>
         </div>
     </section>
@@ -333,23 +355,26 @@
 
     <!-- Scripts -->
     <script type="module" src="./js/main.js"></script>
+    <!-- Core Scripts -->
     <script type="module" src="./js/animations.js"></script>
     <script type="module" src="./js/slider.js"></script>
     <script type="module" src="./js/parallax.js"></script>
     <script type="module" src="./js/theme.js"></script>
     <script type="module" src="./js/home.js"></script>
     
-    <!-- Utility Scripts -->
+    <!-- Utils -->
     <script type="module" src="./js/utils/validation.js"></script>
     <script type="module" src="./js/utils/notifications.js"></script>
     
-    <!-- Component Scripts -->
+    <!-- Components -->
     <script type="module" src="./js/components.js"></script>
     <script type="module" src="./js/components/Testimonial.js"></script>
     <script type="module" src="./js/components/NewsCard.js"></script>
+    <script type="module" src="./js/components/NewsHighlight.js"></script>
     
-    <!-- Service Scripts -->
+    <!-- Services -->
     <script type="module" src="./js/services/testimonialService.js"></script>
     <script type="module" src="./js/services/newsService.js"></script>
+    <script type="module" src="./js/services/analyticsService.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SkyFarms | Careers</title>
+    <title>Join Our Mission - Careers at SkyFarms</title>
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/animations.css" />
@@ -17,16 +17,55 @@
     <main class="careers-page">
         <section class="hero-careers parallax" data-speed="0.5">
             <div class="hero-content animate-on-scroll">
-                <h1>Join Our Mission</h1>
-                <p>Help us revolutionize sustainable agriculture</p>
+                <h1>Shape the Future of Agriculture</h1>
+                <p>Join a team of innovators revolutionizing sustainable farming</p>
+                <div class="hero-cta">
+                    <a href="#open-positions" class="btn primary">View Open Positions</a>
+                    <a href="#culture" class="btn secondary">Our Culture</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="culture-section" id="culture">
+            <div class="container">
+                <h2>Life at SkyFarms</h2>
+                <div class="culture-grid">
+                    <div class="culture-card animate-on-scroll">
+                        <div class="culture-icon">
+                            <img src="../images/icons/innovation.svg" alt="Innovation">
+                        </div>
+                        <h3>Innovation-Driven</h3>
+                        <p>Work with cutting-edge technology and contribute to groundbreaking solutions</p>
+                    </div>
+                    <div class="culture-card animate-on-scroll">
+                        <div class="culture-icon">
+                            <img src="../images/icons/growth.svg" alt="Growth">
+                        </div>
+                        <h3>Continuous Growth</h3>
+                        <p>Regular training, workshops, and opportunities for professional development</p>
+                    </div>
+                    <div class="culture-card animate-on-scroll">
+                        <div class="culture-icon">
+                            <img src="../images/icons/impact.svg" alt="Impact">
+                        </div>
+                        <h3>Global Impact</h3>
+                        <p>Make a real difference in global food security and sustainability</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="careers-content">
             <div class="container">
-                <div class="careers-search">
+                <div class="careers-search" id="open-positions">
+                    <h2>Open Positions</h2>
+                    <p class="section-intro">Join our diverse team of experts and help build the future of sustainable agriculture</p>
                     <div class="search-filters">
-                        <input type="text" id="job-search" placeholder="Search positions...">
+                        <div class="search-wrapper">
+                            <i class="icon-search"></i>
+                            <input type="text" id="job-search" placeholder="Search positions...">
+                            <button class="clear-search" style="display: none;"><i class="icon-close"></i></button>
+                        </div>
                         <div class="filter-buttons">
                             <button class="filter-btn active" data-department="all">All Departments</button>
                             <button class="filter-btn" data-department="engineering">Engineering</button>
@@ -41,6 +80,13 @@
                                 <option value="abudhabi">Abu Dhabi, UAE</option>
                                 <option value="remote">Remote</option>
                             </select>
+                            <select id="type-select">
+                                <option value="all">All Types</option>
+                                <option value="full-time">Full Time</option>
+                                <option value="part-time">Part Time</option>
+                                <option value="contract">Contract</option>
+                                <option value="internship">Internship</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -49,43 +95,96 @@
                     <!-- Job cards will be dynamically populated -->
                 </div>
 
-                <template id="job-card-template">
-                    <div class="job-card animate-on-scroll">
-                        <div class="job-header">
-                            <h3 class="job-title"></h3>
-                            <span class="job-type"></span>
-                        </div>
-                        <div class="job-details">
-                            <span class="job-location"></span>
-                            <span class="job-department"></span>
-                        </div>
-                        <p class="job-description"></p>
-                        <div class="job-footer">
-                            <button class="btn apply-btn">Apply Now</button>
-                            <span class="posted-date"></span>
-                        </div>
+                <div class="no-results" style="display: none;">
+                    <img src="../images/illustrations/no-results.svg" alt="No Results">
+                    <h3>No Positions Found</h3>
+                    <p>Try adjusting your search criteria or check back later for new opportunities.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="hiring-process">
+            <div class="container">
+                <h2>Our Hiring Process</h2>
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Application Review</h3>
+                        <p>Our team reviews your application within 5 business days</p>
                     </div>
-                </template>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Initial Interview</h3>
+                        <p>Virtual meeting with HR to discuss your experience and aspirations</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Technical Assessment</h3>
+                        <p>Role-specific evaluation of your skills and expertise</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Team Interview</h3>
+                        <p>Meet your potential teammates and learn about day-to-day work</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h3>Final Decision</h3>
+                        <p>Offer discussion and welcome to the team!</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="benefits-section">
             <div class="container">
-                <h2>Why Join SkyFarms?</h2>
+                <h2>Benefits & Perks</h2>
+                <p class="section-intro">We offer competitive compensation and comprehensive benefits to support our team</p>
                 <div class="benefits-grid">
                     <div class="benefit-card animate-on-scroll">
                         <div class="benefit-icon">
-                            <img src="/images/icons/growth.svg" alt="Growth">
+                            <img src="../images/icons/growth.svg" alt="Growth">
                         </div>
                         <h3>Career Growth</h3>
                         <p>Continuous learning and development opportunities</p>
                     </div>
-                    <!-- Add more benefit cards -->
+                    <div class="benefit-card animate-on-scroll">
+                        <div class="benefit-icon">
+                            <img src="../images/icons/health.svg" alt="Health">
+                        </div>
+                        <h3>Health & Wellness</h3>
+                        <ul class="benefit-list">
+                            <li>Comprehensive medical coverage</li>
+                            <li>Mental health support</li>
+                            <li>Fitness allowance</li>
+                        </ul>
+                    </div>
+                    <!-- Add more detailed benefit cards -->
                 </div>
+            </div>
+        </section>
+
+        <section class="talent-community">
+            <div class="container">
+                <h2>Join Our Talent Community</h2>
+                <p>Don't see the right position? Join our talent community to stay updated on future opportunities.</p>
+                <form class="talent-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <select name="interest-area" required>
+                        <option value="">Select your area of interest</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="agriculture">Agriculture</option>
+                        <option value="operations">Operations</option>
+                        <option value="business">Business</option>
+                    </select>
+                    <button type="submit" class="btn">Stay Connected</button>
+                </form>
             </div>
         </section>
     </main>
     <!-- Include footer -->
     <script src="/js/careers.js"></script>
+    <script src="/js/job-filter.js"></script>
+    <script src="/js/animations.js"></script>
 </body>
 </html> 

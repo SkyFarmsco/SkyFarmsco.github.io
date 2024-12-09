@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - SkyFarms</title>
+    <title>Global Impact Projects - SkyFarms</title>
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/animations.css" />
@@ -20,8 +20,61 @@
     <main class="projects-page">
         <section class="hero-projects parallax" data-speed="0.5">
             <div class="hero-content animate-on-scroll">
-                <h1>Our Projects</h1>
-                <p>Transforming Urban Agriculture Worldwide</p>
+                <h1>Global Impact Projects</h1>
+                <p>Revolutionizing Agriculture Across Continents</p>
+                <div class="project-stats">
+                    <div class="stat">
+                        <span class="number">50+</span>
+                        <span class="label">Active Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">12</span>
+                        <span class="label">Countries</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">1M+</span>
+                        <span class="label">People Impacted</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-project">
+            <div class="container">
+                <div class="project-showcase animate-on-scroll">
+                    <div class="project-media">
+                        <div class="media-slider">
+                            <img src="../images/projects/casablanca-farm.jpg" alt="Casablanca Vertical Farm">
+                            <!-- Additional media slides -->
+                        </div>
+                        <div class="project-badges">
+                            <span class="badge flagship">Flagship Project</span>
+                            <span class="badge sustainable">100% Sustainable</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h2>Casablanca Mega Farm</h2>
+                        <p class="project-description">
+                            Our largest facility in North Africa, producing over 1000 tons of fresh produce annually
+                            while using 95% less water than traditional farming methods.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="value">5000m²</span>
+                                <span class="label">Facility Size</span>
+                            </div>
+                            <div class="metric">
+                                <span class="value">1000+</span>
+                                <span class="label">Tons/Year</span>
+                            </div>
+                            <div class="metric">
+                                <span class="value">95%</span>
+                                <span class="label">Water Saved</span>
+                            </div>
+                        </div>
+                        <button class="btn case-study-btn">View Case Study</button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -29,51 +82,33 @@
             <div class="container">
                 <div class="projects-filter">
                     <div class="filter-group">
-                        <button class="filter-btn active" data-filter="all">All Projects</button>
-                        <button class="filter-btn" data-filter="commercial">Commercial</button>
-                        <button class="filter-btn" data-filter="research">Research</button>
-                        <button class="filter-btn" data-filter="community">Community</button>
+                        <button class="filter-btn active" data-filter="all">View All</button>
+                        <button class="filter-btn" data-filter="commercial">Commercial Farms</button>
+                        <button class="filter-btn" data-filter="research">Research Centers</button>
+                        <button class="filter-btn" data-filter="community">Community Projects</button>
+                        <button class="filter-btn" data-filter="education">Educational</button>
                     </div>
                     <div class="search-group">
                         <input type="text" id="project-search" placeholder="Search projects...">
-                        <select id="location-filter">
-                            <option value="all">All Locations</option>
-                            <option value="dubai">Dubai</option>
-                            <option value="abudhabi">Abu Dhabi</option>
-                            <option value="sharjah">Sharjah</option>
-                        </select>
+                        <div class="advanced-filters">
+                            <select id="region-filter">
+                                <option value="all">All Regions</option>
+                                <option value="namerica">North Africa</option>
+                                <option value="meast">Middle East</option>
+                                <option value="europe">Europe</option>
+                            </select>
+                            <select id="status-filter">
+                                <option value="all">All Statuses</option>
+                                <option value="active">Active</option>
+                                <option value="development">In Development</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
                 <div class="projects-grid">
-                    <div class="project-card" data-category="commercial" data-location="dubai">
-                        <div class="project-image">
-                            <img src="../images/projects/dubai-farm.jpg" alt="Dubai Vertical Farm">
-                            <div class="project-overlay">
-                                <span class="project-category">Commercial</span>
-                                <button class="view-details" data-project="dubai-farm">View Details</button>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Dubai Mega Farm</h3>
-                            <p>5000sqm vertical farming facility producing fresh vegetables</p>
-                            <div class="project-stats">
-                                <div class="stat">
-                                    <span class="value">5000</span>
-                                    <span class="label">sqm</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="value">500</span>
-                                    <span class="label">tons/year</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- More project cards will be added dynamically -->
-                </div>
-
-                <div class="load-more">
-                    <button id="load-more-btn" class="btn">Load More Projects</button>
+                    <!-- Enhanced project cards with more details and metrics -->
                 </div>
             </div>
         </section>
@@ -81,40 +116,47 @@
         <section class="impact-metrics">
             <div class="container">
                 <h2>Global Impact</h2>
-                <div class="metrics-grid">
-                    <div class="metric-card animate-on-scroll">
-                        <div class="metric-icon">
-                            <img src="../images/icons/water.svg" alt="Water Savings">
-                        </div>
-                        <div class="metric-info">
-                            <div class="metric-value">
-                                <span class="counter" data-value="500">0</span>M
-                            </div>
-                            <p>Liters of Water Saved Annually</p>
-                        </div>
+                <div class="impact-dashboard">
+                    <div class="impact-chart">
+                        <canvas id="sustainabilityChart"></canvas>
                     </div>
-                    <!-- Add more metric cards -->
+                    <div class="impact-stats">
+                        <div class="stat-card">
+                            <h3>Environmental Impact</h3>
+                            <ul>
+                                <li>500M Liters of Water Saved</li>
+                                <li>30K Tons CO₂ Reduced</li>
+                                <li>Zero Pesticides Used</li>
+                            </ul>
+                        </div>
+                        <!-- Additional impact stats -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-timeline">
+            <div class="container">
+                <h2>Project Pipeline</h2>
+                <div class="timeline-slider">
+                    <!-- Interactive timeline of upcoming and completed projects -->
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Project Details Modal -->
-    <div class="modal" id="project-modal">
+    <!-- Enhanced modals for project details -->
+    <div class="modal" id="case-study-modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <div class="modal-body">
-                <!-- Project details will be loaded dynamically -->
+            <div class="case-study-content">
+                <!-- Dynamic case study content -->
             </div>
         </div>
     </div>
 
-    <footer>
-        <!-- Footer will be loaded dynamically -->
-    </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/projects.js"></script>
     <script src="../js/animations.js"></script>
-    <script src="../js/components.js"></script>
 </body>
 </html> 

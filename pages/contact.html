@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SkyFarms | Contact Us</title>
+    <title>Get in Touch - SkyFarms</title>
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/animations.css" />
@@ -14,12 +14,21 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
-    <!-- Include navigation -->
     <main class="contact-page">
         <section class="hero-contact parallax" data-speed="0.5">
             <div class="hero-content animate-on-scroll">
-                <h1>Get in Touch</h1>
-                <p>Let's discuss how we can work together</p>
+                <h1>Let's Build the Future of Farming</h1>
+                <p>Connect with our experts to explore sustainable farming solutions</p>
+                <div class="contact-channels">
+                    <a href="tel:+97144123456" class="channel-btn">
+                        <i class="icon-phone"></i>
+                        <span>Call Us</span>
+                    </a>
+                    <a href="#contact-form" class="channel-btn primary">
+                        <i class="icon-message"></i>
+                        <span>Send Message</span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -27,8 +36,16 @@
             <div class="container">
                 <div class="contact-grid">
                     <div class="contact-form-wrapper animate-on-scroll">
-                        <h2>Send us a Message</h2>
+                        <h2>Start Your Journey</h2>
+                        <p class="form-intro">Whether you're interested in our solutions, partnership opportunities, or just want to learn more, we're here to help.</p>
                         <form id="contact-form" class="contact-form">
+                            <div class="form-progress">
+                                <div class="progress-step active" data-step="1">Basic Info</div>
+                                <div class="progress-step" data-step="2">Project Details</div>
+                                <div class="progress-step" data-step="3">Additional Info</div>
+                            </div>
+
+                            <div class="form-step active" data-step="1">
                             <div class="form-group">
                                 <label for="name">Full Name *</label>
                                 <input type="text" id="name" name="name" required 
@@ -44,17 +61,39 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="subject">Subject *</label>
-                                <select id="subject" name="subject" required>
-                                    <option value="">Select a subject</option>
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone"
+                                    pattern="[0-9\+\-\s()]*">
+                            </div>
+                            </div>
+
+                            <div class="form-step" data-step="2">
+                            <div class="form-group">
+                                <label for="interest">Area of Interest *</label>
+                                <select id="interest" name="interest" required>
+                                    <option value="">Select your interest</option>
                                     <option value="business">Business Inquiry</option>
-                                    <option value="partnership">Partnership</option>
+                                    <option value="partnership">Strategic Partnership</option>
+                                    <option value="investment">Investment Opportunities</option>
                                     <option value="support">Technical Support</option>
+                                    <option value="careers">Career Opportunities</option>
                                     <option value="other">Other</option>
                                 </select>
                                 <span class="error-message"></span>
                             </div>
 
+                            <div class="form-group">
+                                <label for="project-size">Project Scale</label>
+                                <select id="project-size" name="project-size">
+                                    <option value="">Select project scale</option>
+                                    <option value="small">Small (< 100m²)</option>
+                                    <option value="medium">Medium (100-500m²)</option>
+                                    <option value="large">Large (> 500m²)</option>
+                                </select>
+                            </div>
+                            </div>
+
+                            <div class="form-step" data-step="3">
                             <div class="form-group">
                                 <label for="message">Message *</label>
                                 <textarea id="message" name="message" rows="6" required
@@ -62,40 +101,54 @@
                                 <span class="error-message"></span>
                             </div>
 
-                            <button type="submit" class="btn submit-btn">
-                                <span class="btn-text">Send Message</span>
-                                <span class="btn-loader"></span>
-                            </button>
+                            <div class="form-group">
+                                <label for="attachments">Attachments</label>
+                                <input type="file" id="attachments" name="attachments" multiple
+                                    accept=".pdf,.doc,.docx,.ppt,.pptx">
+                                <small>Max file size: 10MB</small>
+                            </div>
+                            </div>
+
+                            <div class="form-navigation">
+                                <button type="button" class="btn prev-step" style="display: none;">Previous</button>
+                                <button type="button" class="btn next-step">Next</button>
+                                <button type="submit" class="btn submit-btn" style="display: none;">
+                                    <span class="btn-text">Send Message</span>
+                                    <span class="btn-loader"></span>
+                                </button>
+                            </div>
                         </form>
                     </div>
 
                     <div class="contact-info animate-on-scroll">
-                        <div class="info-card">
+                        <div class="info-tabs">
+                            <button class="tab-btn active" data-tab="locations">Our Locations</button>
+                            <button class="tab-btn" data-tab="support">Support Hours</button>
+                        </div>
+
+                        <div class="info-card" id="locations">
                             <h3>Our Locations</h3>
                             <div class="location">
                                 <h4>Dubai Headquarters</h4>
                                 <p>Dubai Silicon Oasis</p>
                                 <p>Dubai, UAE</p>
+                                <a href="#" class="directions-link">Get Directions</a>
                             </div>
-                            <div class="location">
-                                <h4>Innovation Center</h4>
-                                <p>Dubai Science Park</p>
-                                <p>Dubai, UAE</p>
-                            </div>
+                            <!-- ... other locations ... -->
                         </div>
 
-                        <div class="info-card">
-                            <h3>Contact Information</h3>
-                            <ul class="contact-list">
-                                <li>
-                                    <i class="icon-email"></i>
-                                    <a href="mailto:info@skyfarms.com">info@skyfarms.com</a>
-                                </li>
-                                <li>
-                                    <i class="icon-phone"></i>
-                                    <a href="tel:+97144123456">+971 4 412 3456</a>
-                                </li>
-                            </ul>
+                        <div class="info-card hidden" id="support">
+                            <h3>Support Hours</h3>
+                            <div class="support-schedule">
+                                <div class="schedule-item">
+                                    <span class="days">Monday - Friday</span>
+                                    <span class="hours">9:00 AM - 6:00 PM (GST)</span>
+                                </div>
+                                <div class="schedule-item">
+                                    <span class="days">Saturday</span>
+                                    <span class="hours">10:00 AM - 2:00 PM (GST)</span>
+                                </div>
+                            </div>
                         </div>
 
                         <div id="contact-map" class="contact-map"></div>
@@ -103,11 +156,23 @@
                 </div>
             </div>
         </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>How quickly can you implement a vertical farming solution?</h3>
+                        <p>Implementation time varies based on project scale, typically ranging from 2-6 months.</p>
+                    </div>
+                    <!-- Additional FAQ items -->
+                </div>
+            </div>
+        </section>
     </main>
-    <!-- Include footer -->
-    
-    <!-- Leaflet Map JS -->
+
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="/js/contact.js"></script>
+    <script src="/js/form-validation.js"></script>
 </body>
 </html> 

@@ -1,155 +1,245 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Sample job data (in a real app, this would come from an API)
-    const jobs = [
-        {
-            title: 'Senior IoT Engineer',
-            type: 'Full-time',
-            location: 'Dubai, UAE',
-            department: 'engineering',
-            description: 'Join our tech team to develop smart farming solutions and IoT systems for vertical farming.',
-            posted: '2024-03-15'
-        },
-        {
-            title: 'Plant Scientist',
-            type: 'Full-time',
-            location: 'Abu Dhabi, UAE',
-            department: 'agriculture',
-            description: 'Lead research in plant growth optimization and nutrient management systems.',
-            posted: '2024-03-14'
-        },
-        {
-            title: 'Operations Manager',
-            type: 'Full-time',
-            location: 'Dubai, UAE',
-            department: 'operations',
-            description: 'Oversee daily operations of our vertical farming facilities.',
-            posted: '2024-03-13'
-        }
-        // Add more job listings
-    ];
+class CareersManager {
+    constructor() {
+        this.currentFilters = {
+            department: 'all',
+            location: 'all',
+            type: 'all',
+            search: ''
+        };
+        this.init();
+    }
 
-    const jobsGrid = document.querySelector('.jobs-grid');
-    const jobTemplate = document.querySelector('#job-card-template');
-    const searchInput = document.querySelector('#job-search');
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const locationSelect = document.querySelector('#location-select');
+    init() {
+        this.initializeFilters();
+        this.initializeJobCards();
+        this.initializeHiringProcess();
+        this.initializeTalentForm();
+        this.initializeCultureSection();
+    }
 
-    let currentFilters = {
-        department: 'all',
-        location: 'all',
-        search: ''
-    };
+    initializeFilters() {
+        // Search functionality
+        const searchInput = document.querySelector('#job-search');
+        const clearSearchBtn = document.querySelector('.clear-search');
 
-    // Initialize jobs display
-    displayJobs();
-
-    // Search functionality
-    searchInput.addEventListener('input', (e) => {
-        currentFilters.search = e.target.value.toLowerCase();
-        displayJobs();
-    });
-
-    // Department filter
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            currentFilters.department = button.dataset.department;
-            displayJobs();
-        });
-    });
-
-    // Location filter
-    locationSelect.addEventListener('change', (e) => {
-        currentFilters.location = e.target.value;
-        displayJobs();
-    });
-
-    function displayJobs() {
-        // Clear current jobs
-        jobsGrid.innerHTML = '';
-
-        // Filter jobs
-        const filteredJobs = jobs.filter(job => {
-            const matchesDepartment = currentFilters.department === 'all' || job.department === currentFilters.department;
-            const matchesLocation = currentFilters.location === 'all' || job.location.toLowerCase().includes(currentFilters.location.toLowerCase());
-            const matchesSearch = job.title.toLowerCase().includes(currentFilters.search) || 
-                                job.description.toLowerCase().includes(currentFilters.search);
-
-            return matchesDepartment && matchesLocation && matchesSearch;
+        searchInput?.addEventListener('input', (e) => {
+            this.currentFilters.search = e.target.value.toLowerCase();
+            if (e.target.value) {
+                clearSearchBtn.style.display = 'block';
+            } else {
+                clearSearchBtn.style.display = 'none';
+            }
+            this.filterJobs();
         });
 
-        // Display filtered jobs
-        filteredJobs.forEach(job => {
-            const jobCard = jobTemplate.content.cloneNode(true);
-            
-            jobCard.querySelector('.job-title').textContent = job.title;
-            jobCard.querySelector('.job-type').textContent = job.type;
-            jobCard.querySelector('.job-location').textContent = job.location;
-            jobCard.querySelector('.job-department').textContent = job.department.charAt(0).toUpperCase() + job.department.slice(1);
-            jobCard.querySelector('.job-description').textContent = job.description;
-            jobCard.querySelector('.posted-date').textContent = `Posted ${formatDate(job.posted)}`;
-
-            // Add apply button functionality
-            jobCard.querySelector('.apply-btn').addEventListener('click', () => {
-                openApplicationModal(job);
+        // Department filters
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(btn => 
+                    btn.classList.remove('active'));
+                button.classList.add('active');
+                this.currentFilters.department = button.dataset.department;
+                this.filterJobs();
             });
-
-            jobsGrid.appendChild(jobCard);
         });
 
-        // Show no results message if needed
-        if (filteredJobs.length === 0) {
-            const noResults = document.createElement('div');
-            noResults.className = 'no-results';
-            noResults.textContent = 'No matching positions found.';
-            jobsGrid.appendChild(noResults);
-        }
-    }
+        // Location and type filters
+        const locationSelect = document.querySelector('#location-select');
+        const typeSelect = document.querySelector('#type-select');
 
-    function formatDate(dateString) {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return new Date(dateString).toLocaleDateString(undefined, options);
-    }
-
-    function openApplicationModal(job) {
-        const modal = document.getElementById('application-modal');
-        const jobTitleSpan = modal.querySelector('.job-title');
-        const form = modal.querySelector('#application-form');
-        
-        jobTitleSpan.textContent = job.title;
-        modal.classList.add('active');
-        
-        // Close modal functionality
-        modal.querySelector('.close-modal').addEventListener('click', () => {
-            modal.classList.remove('active');
+        locationSelect?.addEventListener('change', (e) => {
+            this.currentFilters.location = e.target.value;
+            this.filterJobs();
         });
-        
-        // Close on outside click
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
+
+        typeSelect?.addEventListener('change', (e) => {
+            this.currentFilters.type = e.target.value;
+            this.filterJobs();
+        });
+    }
+
+    filterJobs() {
+        const jobCards = document.querySelectorAll('.job-card');
+        let visibleCount = 0;
+
+        jobCards.forEach(card => {
+            const title = card.querySelector('.job-title').textContent.toLowerCase();
+            const description = card.querySelector('.job-description').textContent.toLowerCase();
+            const department = card.dataset.department;
+            const location = card.querySelector('.job-location').textContent.toLowerCase();
+            const type = card.querySelector('.job-type').textContent.toLowerCase();
+
+            const matchesSearch = title.includes(this.currentFilters.search) || 
+                                description.includes(this.currentFilters.search);
+            const matchesDepartment = this.currentFilters.department === 'all' || 
+                                    department === this.currentFilters.department;
+            const matchesLocation = this.currentFilters.location === 'all' || 
+                                  location.includes(this.currentFilters.location.toLowerCase());
+            const matchesType = this.currentFilters.type === 'all' || 
+                              type.includes(this.currentFilters.type.toLowerCase());
+
+            if (matchesSearch && matchesDepartment && matchesLocation && matchesType) {
+                card.style.display = 'block';
+                this.animateCard(card, visibleCount);
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
             }
         });
+
+        this.updateNoResults(visibleCount === 0);
+    }
+
+    initializeJobCards() {
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('apply-btn')) {
+                const jobCard = e.target.closest('.job-card');
+                this.openApplicationModal(jobCard);
+            }
+        });
+    }
+
+    initializeHiringProcess() {
+        const processSteps = document.querySelectorAll('.process-step');
         
-        // Form submission
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        processSteps.forEach(step => observer.observe(step));
+    }
+
+    initializeTalentForm() {
+        const form = document.querySelector('.talent-form');
+        if (!form) return;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+
+            try {
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                this.showNotification('Successfully joined talent community!', 'success');
+                form.reset();
+            } catch (error) {
+                this.showNotification('Failed to join. Please try again.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+    }
+
+    initializeCultureSection() {
+        const cultureCards = document.querySelectorAll('.culture-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        cultureCards.forEach(card => observer.observe(card));
+    }
+
+    animateCard(card, index) {
+        card.style.animationDelay = `${index * 0.1}s`;
+        card.classList.add('animate-fade-in');
+    }
+
+    updateNoResults(show) {
+        const noResults = document.querySelector('.no-results');
+        if (!noResults) return;
+
+        if (show) {
+            noResults.style.display = 'flex';
+            noResults.classList.add('animate-fade-in');
+        } else {
+            noResults.style.display = 'none';
+            noResults.classList.remove('animate-fade-in');
+        }
+    }
+
+    openApplicationModal(jobCard) {
+        const modal = document.createElement('div');
+        modal.className = 'modal application-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="application-content">
+                    <h2>Apply for ${jobCard.querySelector('.job-title').textContent}</h2>
+                    <form class="application-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="resume">Resume/CV *</label>
+                            <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cover-letter">Cover Letter</label>
+                            <textarea id="cover-letter" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn submit-btn">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        const closeBtn = modal.querySelector('.close-modal');
+        const form = modal.querySelector('form');
+
+        closeBtn.addEventListener('click', () => modal.remove());
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.remove();
+        });
+
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const submitBtn = form.querySelector('.submit-btn');
-            submitBtn.classList.add('loading');
-            
+            submitBtn.disabled = true;
+
             try {
-                // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                showNotification('Application submitted successfully!', 'success');
-                modal.classList.remove('active');
-                form.reset();
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                this.showNotification('Application submitted successfully!', 'success');
+                modal.remove();
             } catch (error) {
-                showNotification('Failed to submit application. Please try again.', 'error');
+                this.showNotification('Failed to submit application', 'error');
             } finally {
-                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
             }
         });
     }
+
+    showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => notification.classList.add('show'), 10);
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+}
+
+// Initialize the careers manager
+document.addEventListener('DOMContentLoaded', () => {
+    new CareersManager();
 }); 
