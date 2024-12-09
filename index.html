@@ -34,82 +34,162 @@
     <!-- Header will be loaded by components.js -->
     
     <!-- Hero Section -->
-    <section id="hero">
+    <section id="hero" class="fullscreen-hero">
         <div class="hero-slider" data-autoplay="true">
             <div class="slide active">
-                <video autoplay muted loop class="hero-video">
+                <video autoplay muted loop playsinline class="hero-video">
                     <source src="/images/hero/hero-video.mp4" type="video/mp4">
                 </video>
                 <div class="hero-content animate-on-scroll">
-                    <h1>Reimagining Urban Agriculture</h1>
+                    <h1 class="mega-title">Growing Tomorrow's Food, Today</h1>
                     <div class="rotating-text">
                         <span>Sustainable Farming</span>
                         <span>Smart Technology</span>
                         <span>Future of Food</span>
                     </div>
-                    <p>SkyFarms integrates vertical farming, AI, and sustainability to feed cities with fresh, local produce.</p>
-                    <a href="#about" class="btn">Learn More</a>
+                    <p class="hero-description">Revolutionizing urban agriculture through AI-powered vertical farming solutions</p>
+                    <div class="hero-cta">
+                        <a href="#solutions" class="btn btn-primary">Explore Solutions</a>
+                        <a href="/pages/contact.html" class="btn btn-outline">Contact Us</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section-padding">
-        <div class="container">
-            <h2 class="animate-on-scroll">About SkyFarms</h2>
-            <p class="animate-on-scroll">
-                SkyFarms is transforming how cities produce and consume food. Leveraging vertical farming, hydroponics, aeroponics, and renewable energy, we drastically reduce water use, minimize land footprint, and deliver pesticide-free, nutrient-rich produce year-round.
-            </p>
-            <div class="about-features">
-                <div class="feature animate-on-scroll">
-                    <img src="/images/icons/water-saving.svg" alt="Water Saving Icon" />
-                    <h3>90% Water Savings</h3>
-                    <p>By using hydroponics & aeroponics, we conserve up to 90% more water than traditional farming.</p>
-                </div>
-                <div class="feature animate-on-scroll">
-                    <img src="/images/icons/fresh-produce.svg" alt="Fresh Produce Icon" />
-                    <h3>Year-Round Freshness</h3>
-                    <p>Our climate-controlled environments ensure consistent yield and quality every season.</p>
-                </div>
-                <div class="feature animate-on-scroll">
-                    <img src="/images/icons/circular-economy.svg" alt="Circular Economy Icon" />
-                    <h3>Circular Economy</h3>
-                    <p>We recycle organic waste into nutrient-rich fertilizers, closing the loop for sustainable growth.</p>
-                </div>
-            </div>
+        <div class="scroll-indicator">
+            <span class="mouse">
+                <span class="wheel"></span>
+            </span>
+            <p>Scroll to explore</p>
         </div>
     </section>
 
-    <!-- Quick Stats Section -->
-    <section class="stats-section parallax" data-speed="0.5">
+    <!-- Impact Numbers Section -->
+    <section class="impact-numbers">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item animate-on-scroll">
-                    <div class="stat-value" data-value="90">0</div>
-                    <p>Water Saved</p>
+            <div class="numbers-grid">
+                <div class="number-item animate-on-scroll">
+                    <div class="number">
+                        <span class="counter" data-value="95">0</span>%
+                    </div>
+                    <p>Less Water Usage</p>
                 </div>
-                <div class="stat-item animate-on-scroll">
-                    <div class="stat-value" data-value="365">0</div>
-                    <p>Days of Growing</p>
-                </div>
-                <div class="stat-item animate-on-scroll">
-                    <div class="stat-value" data-value="50">0</div>
+                <div class="number-item animate-on-scroll">
+                    <div class="number">
+                        <span class="counter" data-value="50">0</span>+
+                    </div>
                     <p>Active Projects</p>
                 </div>
+                <div class="number-item animate-on-scroll">
+                    <div class="number">
+                        <span class="counter" data-value="1000">0</span>t
+                    </div>
+                    <p>Annual Production</p>
+                </div>
+                <div class="number-item animate-on-scroll">
+                    <div class="number">
+                        <span class="counter" data-value="100">0</span>%
+                    </div>
+                    <p>Clean Energy</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- Solutions Section -->
+    <section id="solutions" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title animate-on-scroll">Our Solutions</h2>
+                <p class="section-subtitle">Comprehensive vertical farming solutions for every scale</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card animate-on-scroll">
+                    <div class="solution-icon">
+                        <img src="/images/icons/compact.svg" alt="Compact Solutions">
+                    </div>
+                    <h3>SkyFarm Compact</h3>
+                    <p>Perfect for restaurants and small businesses</p>
+                    <ul class="feature-list">
+                        <li>Up to 100m² growing area</li>
+                        <li>Plug-and-play installation</li>
+                        <li>Smart monitoring system</li>
+                    </ul>
+                    <a href="/pages/products.html#compact" class="btn btn-outline">Learn More</a>
+                </div>
+                <!-- More solution cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Showcase -->
+    <section class="tech-showcase section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title animate-on-scroll">Advanced Technology</h2>
+                <p class="section-subtitle">Powering the future of agriculture</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-visual animate-on-scroll">
+                    <div class="interactive-model">
+                        <!-- 3D model or interactive visualization -->
+                        <img src="/images/technology/tech-showcase.jpg" alt="Technology Visualization">
+                        <div class="hotspots">
+                            <!-- Interactive hotspots -->
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-features">
+                    <div class="feature-item animate-on-scroll">
+                        <h3>AI-Powered Control</h3>
+                        <p>Machine learning algorithms optimize growing conditions in real-time</p>
+                    </div>
+                    <!-- More feature items -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section class="sustainability-section parallax" data-speed="0.5">
+        <div class="container">
+            <div class="sustainability-content">
+                <h2 class="animate-on-scroll">Committed to Sustainability</h2>
+                <div class="sustainability-grid">
+                    <div class="sustainability-card animate-on-scroll">
+                        <div class="card-icon">
+                            <img src="/images/icons/water.svg" alt="Water Conservation">
+                        </div>
+                        <h3>Water Conservation</h3>
+                        <p>95% less water usage compared to traditional farming</p>
+                    </div>
+                    <!-- More sustainability cards -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Projects -->
+    <section class="projects-section section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title animate-on-scroll">Recent Projects</h2>
+                <p class="section-subtitle">See how we're transforming urban agriculture</p>
+            </div>
+            <div class="projects-slider">
+                <!-- Project slides -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section parallax" data-speed="0.3">
         <div class="container">
             <div class="cta-content animate-on-scroll">
                 <h2>Ready to Transform Agriculture?</h2>
-                <p>Join us in creating a sustainable future for food production.</p>
+                <p>Join us in creating a sustainable future for food production</p>
                 <div class="cta-buttons">
-                    <a href="/pages/contact.html" class="btn">Contact Us</a>
-                    <a href="/pages/products.html" class="btn btn-outline">Our Solutions</a>
+                    <a href="/pages/contact.html" class="btn btn-primary">Get Started</a>
+                    <a href="/pages/about.html" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
         </div>
@@ -117,28 +197,30 @@
 
     <!-- Footer will be loaded by components.js -->
 
-    <!-- Scroll to Top Button -->
-    <button id="scroll-top" class="scroll-top-btn">
+    <!-- Floating Elements -->
+    <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">
         <svg viewBox="0 0 24 24" width="24" height="24">
             <path fill="currentColor" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
         </svg>
     </button>
 
-    <!-- Theme Toggle -->
-    <button id="theme-toggle" class="theme-toggle">
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
         <svg class="sun-icon" viewBox="0 0 24 24">
             <path fill="currentColor" d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0z"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" style="display: none;">
+            <path fill="currentColor" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/>
         </svg>
     </button>
 
     <!-- Scripts -->
-    <script src="./js/utils/validation.js"></script>
-    <script src="./js/utils/notifications.js"></script>
-    <script src="./js/components.js"></script>
-    <script src="./js/animations.js"></script>
-    <script src="./js/slider.js"></script>
-    <script src="./js/parallax.js"></script>
-    <script src="./js/theme.js"></script>
-    <script src="./js/main.js"></script>
+    <script type="module" src="./js/utils/validation.js"></script>
+    <script type="module" src="./js/utils/notifications.js"></script>
+    <script type="module" src="./js/components.js"></script>
+    <script type="module" src="./js/animations.js"></script>
+    <script type="module" src="./js/slider.js"></script>
+    <script type="module" src="./js/parallax.js"></script>
+    <script type="module" src="./js/theme.js"></script>
+    <script type="module" src="./js/main.js"></script>
 </body>
 </html>
