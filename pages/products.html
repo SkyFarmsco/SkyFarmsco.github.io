@@ -1,37 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SkyFarms | Products & Services</title>
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/css/animations.css" />
-    <link rel="stylesheet" href="/css/responsive.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products & Solutions - SkyFarms</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/products.css">
 </head>
 <body>
-    <!-- Include navigation -->
+    <header>
+        <!-- Navigation will be loaded dynamically -->
+    </header>
+
     <main class="products-page">
         <section class="hero-products parallax" data-speed="0.5">
             <div class="hero-content animate-on-scroll">
-                <h1>Our Products & Services</h1>
-                <p>Innovative solutions for sustainable urban farming</p>
+                <h1>Products & Solutions</h1>
+                <p>Complete Vertical Farming Systems for Every Scale</p>
             </div>
         </section>
 
-        <section class="products-grid">
-            <div class="product-card animate-on-scroll">
-                <div class="product-image">
-                    <img src="/images/products/product-1.jpg" alt="Vertical Farm Units">
+        <section class="product-categories">
+            <div class="container">
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-category="systems">Farming Systems</button>
+                    <button class="tab-btn" data-category="software">Control Software</button>
+                    <button class="tab-btn" data-category="equipment">Equipment</button>
+                    <button class="tab-btn" data-category="services">Services</button>
                 </div>
-                <div class="product-info">
-                    <h3>Vertical Farm Units</h3>
-                    <p>Modular and scalable farming solutions</p>
-                    <a href="#" class="btn">Learn More</a>
+
+                <div class="products-grid" id="systems">
+                    <div class="product-card animate-on-scroll">
+                        <div class="product-image">
+                            <img src="../images/products/system-compact.jpg" alt="Compact System">
+                            <div class="product-badge">Bestseller</div>
+                        </div>
+                        <div class="product-content">
+                            <h3>SkyFarm Compact</h3>
+                            <p>Complete vertical farming solution for small-scale operations</p>
+                            <ul class="product-features">
+                                <li>Up to 100m² growing area</li>
+                                <li>Automated climate control</li>
+                                <li>IoT monitoring system</li>
+                                <li>Plug-and-play installation</li>
+                            </ul>
+                            <button class="btn product-details" data-product="compact">Learn More</button>
+                        </div>
+                    </div>
+                    <!-- More product cards -->
+                </div>
+
+                <div class="products-grid hidden" id="software">
+                    <!-- Software products -->
+                </div>
+
+                <div class="products-grid hidden" id="equipment">
+                    <!-- Equipment products -->
+                </div>
+
+                <div class="products-grid hidden" id="services">
+                    <!-- Services -->
                 </div>
             </div>
-            <!-- More product cards -->
+        </section>
+
+        <section class="product-features-showcase">
+            <div class="container">
+                <h2>Why Choose Our Solutions?</h2>
+                <div class="features-grid">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <img src="../images/icons/efficiency.svg" alt="Efficiency">
+                        </div>
+                        <h3>Maximum Efficiency</h3>
+                        <p>Up to 95% less water usage compared to traditional farming</p>
+                    </div>
+                    <!-- More feature cards -->
+                </div>
+            </div>
+        </section>
+
+        <section class="comparison-section">
+            <div class="container">
+                <h2>Compare Our Solutions</h2>
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Features</th>
+                                <th>Compact</th>
+                                <th>Professional</th>
+                                <th>Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Growing Area</td>
+                                <td>Up to 100m²</td>
+                                <td>Up to 500m²</td>
+                                <td>1000m²+</td>
+                            </tr>
+                            <!-- More comparison rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section parallax" data-speed="0.3">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Start Your Vertical Farming Journey?</h2>
+                    <p>Get in touch with our experts for a customized solution</p>
+                    <button class="btn cta-btn" data-modal="contact">Request Consultation</button>
+                </div>
+            </div>
         </section>
     </main>
-    <!-- Include footer -->
+
+    <!-- Product Details Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Product details will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contact-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Request a Consultation</h2>
+            <form id="consultation-form" class="consultation-form">
+                <!-- Form fields -->
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Footer will be loaded dynamically -->
+    </footer>
+
+    <script src="../js/products.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
 </body>
 </html> 

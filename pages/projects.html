@@ -1,14 +1,115 @@
-<section class="projects-grid">
-    <div class="project-card" data-category="rooftop">
-        <div class="card-flip">
-            <div class="card-front">
-                <img src="images/projects/project-1.jpg" alt="Rooftop Farm">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - SkyFarms</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/projects.css">
+</head>
+<body>
+    <header>
+        <!-- Navigation will be loaded dynamically -->
+    </header>
+
+    <main class="projects-page">
+        <section class="hero-projects parallax" data-speed="0.5">
+            <div class="hero-content animate-on-scroll">
+                <h1>Our Projects</h1>
+                <p>Transforming Urban Agriculture Worldwide</p>
             </div>
-            <div class="card-back">
-                <h3>Dubai Rooftop Farm</h3>
-                <p>5000sqft sustainable farm producing...</p>
+        </section>
+
+        <section class="projects-overview">
+            <div class="container">
+                <div class="projects-filter">
+                    <div class="filter-group">
+                        <button class="filter-btn active" data-filter="all">All Projects</button>
+                        <button class="filter-btn" data-filter="commercial">Commercial</button>
+                        <button class="filter-btn" data-filter="research">Research</button>
+                        <button class="filter-btn" data-filter="community">Community</button>
+                    </div>
+                    <div class="search-group">
+                        <input type="text" id="project-search" placeholder="Search projects...">
+                        <select id="location-filter">
+                            <option value="all">All Locations</option>
+                            <option value="dubai">Dubai</option>
+                            <option value="abudhabi">Abu Dhabi</option>
+                            <option value="sharjah">Sharjah</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card" data-category="commercial" data-location="dubai">
+                        <div class="project-image">
+                            <img src="../images/projects/dubai-farm.jpg" alt="Dubai Vertical Farm">
+                            <div class="project-overlay">
+                                <span class="project-category">Commercial</span>
+                                <button class="view-details" data-project="dubai-farm">View Details</button>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Dubai Mega Farm</h3>
+                            <p>5000sqm vertical farming facility producing fresh vegetables</p>
+                            <div class="project-stats">
+                                <div class="stat">
+                                    <span class="value">5000</span>
+                                    <span class="label">sqm</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="value">500</span>
+                                    <span class="label">tons/year</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More project cards will be added dynamically -->
+                </div>
+
+                <div class="load-more">
+                    <button id="load-more-btn" class="btn">Load More Projects</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="impact-metrics">
+            <div class="container">
+                <h2>Global Impact</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card animate-on-scroll">
+                        <div class="metric-icon">
+                            <img src="../images/icons/water.svg" alt="Water Savings">
+                        </div>
+                        <div class="metric-info">
+                            <div class="metric-value">
+                                <span class="counter" data-value="500">0</span>M
+                            </div>
+                            <p>Liters of Water Saved Annually</p>
+                        </div>
+                    </div>
+                    <!-- Add more metric cards -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Details Modal -->
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- Project details will be loaded dynamically -->
             </div>
         </div>
     </div>
-    <!-- More project cards -->
-</section> 
+
+    <footer>
+        <!-- Footer will be loaded dynamically -->
+    </footer>
+
+    <script src="../js/projects.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+</body>
+</html> 

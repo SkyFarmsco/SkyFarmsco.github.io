@@ -1,0 +1,54 @@
+{
+    "id": "compact",
+    "name": "SkyFarm Compact",
+    "category": "systems",
+    "mainImage": "/images/products/system-compact.jpg",
+    "images": [
+        "/images/products/compact-1.jpg",
+        "/images/products/compact-2.jpg",
+        "/images/products/compact-3.jpg",
+        "/images/products/compact-4.jpg"
+    ],
+    "description": "The SkyFarm Compact is our entry-level vertical farming solution, perfect for small-scale operations, restaurants, and educational institutions. This all-in-one system combines advanced hydroponics with smart monitoring technology.",
+    "specifications": [
+        "Growing area: Up to 100m²",
+        "Production capacity: 3-5 tons annually",
+        "Energy efficiency: LED lighting with smart controls",
+        "Water recycling system with 95% efficiency",
+        "IoT-enabled monitoring and control",
+        "Remote management via mobile app",
+        "Automated nutrient delivery system",
+        "Climate control with precision sensors"
+    ],
+    "technicalDetails": {
+        "Dimensions": "6m x 6m x 3m (LxWxH)",
+        "Power Requirements": "380-400V, 3-phase",
+        "Water Connection": "Standard 3/4\" inlet",
+        "Network": "WiFi + Ethernet",
+        "Control System": "SkyFarm OS v2.0",
+        "Growing Levels": "4-6 levels (customizable)",
+        "Installation Time": "2-3 days",
+        "Warranty": "2 years standard"
+    },
+    "features": [
+        "Plug-and-play installation",
+        "Modular design for easy expansion",
+        "Integrated pest management",
+        "24/7 remote monitoring",
+        "Automated climate control",
+        "Energy-efficient LED lighting",
+        "Smart water management",
+        "Real-time data analytics"
+    ],
+    "pricing": {
+        "startingAt": "49,999",
+        "currency": "USD",
+        "includes": [
+            "Full system installation",
+            "Initial training",
+            "1-year support package",
+            "Mobile app access",
+            "Basic seed stock"
+        ]
+    }
+} 

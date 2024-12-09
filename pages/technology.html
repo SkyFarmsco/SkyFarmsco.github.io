@@ -1,12 +1,138 @@
-<section class="tech-showcase">
-    <div class="tech-interactive">
-        <div class="hotspots">
-            <!-- Interactive hotspots that reveal information -->
-            <div class="hotspot" data-info="AI Monitoring">
-                <span class="pulse"></span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology - SkyFarms</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/technology.css">
+</head>
+<body>
+    <header>
+        <!-- Navigation will be loaded dynamically -->
+    </header>
+
+    <main class="technology-page">
+        <section class="hero-technology parallax" data-speed="0.5">
+            <div class="hero-content animate-on-scroll">
+                <h1>Our Technology</h1>
+                <p>Advanced Solutions for Sustainable Farming</p>
             </div>
-            <!-- More hotspots -->
+        </section>
+
+        <section class="tech-overview">
+            <div class="container">
+                <div class="tech-grid">
+                    <div class="tech-showcase animate-on-scroll">
+                        <div class="model-viewer">
+                            <div class="hotspots">
+                                <div class="hotspot" data-info="AI-Powered Monitoring" style="top: 30%; left: 20%">
+                                    <span class="pulse"></span>
+                                    <div class="hotspot-content">
+                                        <h3>AI-Powered Monitoring</h3>
+                                        <p>24/7 plant health monitoring using advanced AI algorithms</p>
+                                    </div>
+                                </div>
+                                <div class="hotspot" data-info="LED Lighting" style="top: 45%; left: 60%">
+                                    <span class="pulse"></span>
+                                    <div class="hotspot-content">
+                                        <h3>Smart LED System</h3>
+                                        <p>Optimized spectrum lighting for maximum growth efficiency</p>
+                                    </div>
+                                </div>
+                                <div class="hotspot" data-info="Hydroponic System" style="top: 70%; left: 40%">
+                                    <span class="pulse"></span>
+                                    <div class="hotspot-content">
+                                        <h3>Advanced Hydroponics</h3>
+                                        <p>Precision nutrient delivery and water recycling system</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="../images/technology/vertical-farm-3d.jpg" alt="Vertical Farm Technology">
+                        </div>
+                    </div>
+                    <div class="tech-info animate-on-scroll">
+                        <h2>Next-Generation Farming</h2>
+                        <p>Our vertical farming technology combines IoT sensors, AI-driven climate control, and advanced hydroponics to create the perfect growing environment.</p>
+                        <ul class="tech-features">
+                            <li>95% less water usage than traditional farming</li>
+                            <li>AI-optimized growing conditions</li>
+                            <li>Zero pesticides</li>
+                            <li>Year-round production</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="innovation-highlights">
+            <div class="container">
+                <h2>Core Technologies</h2>
+                <div class="highlights-grid">
+                    <div class="highlight-card animate-on-scroll">
+                        <div class="card-icon">
+                            <img src="../images/icons/ai-monitoring.svg" alt="AI Monitoring">
+                        </div>
+                        <h3>AI Monitoring</h3>
+                        <p>Real-time plant health monitoring and predictive maintenance using machine learning algorithms.</p>
+                        <button class="learn-more" data-modal="ai-monitoring">Learn More</button>
+                    </div>
+                    <!-- Add more highlight cards -->
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-specs parallax" data-speed="0.3">
+            <div class="container">
+                <div class="specs-grid">
+                    <div class="spec-item animate-on-scroll">
+                        <div class="spec-number">
+                            <span class="counter" data-value="95">0</span>%
+                        </div>
+                        <p>Water Conservation</p>
+                    </div>
+                    <!-- Add more spec items -->
+                </div>
+            </div>
+        </section>
+
+        <section class="research-development">
+            <div class="container">
+                <h2>Research & Development</h2>
+                <div class="rd-timeline">
+                    <div class="rd-item animate-on-scroll">
+                        <div class="rd-icon">
+                            <img src="../images/icons/research.svg" alt="Research">
+                        </div>
+                        <div class="rd-content">
+                            <h3>Plant Science</h3>
+                            <p>Optimizing growth recipes for different crop varieties</p>
+                        </div>
+                    </div>
+                    <!-- Add more R&D items -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Technology Detail Modals -->
+    <div class="modal" id="ai-monitoring-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>AI Monitoring System</h2>
+            <div class="modal-body">
+                <!-- Modal content will be loaded dynamically -->
+            </div>
         </div>
-        <img src="images/technology/tech-1.jpg" alt="Technology Overview">
     </div>
-</section> 
+
+    <footer>
+        <!-- Footer will be loaded dynamically -->
+    </footer>
+
+    <script src="../js/counter.js"></script>
+    <script src="../js/technology.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/components.js"></script>
+</body>
+</html> 

@@ -1,82 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SkyFarms | News & Insights</title>
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/css/animations.css" />
-    <link rel="stylesheet" href="/css/responsive.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates - Your Company</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/news.css">
 </head>
 <body>
-    <!-- Include navigation -->
-    <main class="news-page">
-        <section class="hero-news parallax" data-speed="0.5">
-            <div class="hero-content animate-on-scroll">
-                <h1>News & Insights</h1>
-                <p>Stay updated with the latest in sustainable agriculture</p>
+    <header>
+        <!-- Include your navigation here -->
+    </header>
+
+    <main>
+        <section class="news-hero">
+            <h1>Latest News & Updates</h1>
+            <p>Stay informed about our latest developments and innovations</p>
+        </section>
+
+        <section class="news-filters">
+            <div class="search-container">
+                <input type="text" id="news-search" placeholder="Search news...">
+            </div>
+            <div class="category-filters">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="technology">Technology</button>
+                <button class="category-btn" data-category="sustainability">Sustainability</button>
+                <button class="category-btn" data-category="innovation">Innovation</button>
             </div>
         </section>
 
-        <section class="news-content">
-            <div class="container">
-                <div class="news-filters">
-                    <div class="search-bar">
-                        <input type="text" id="news-search" placeholder="Search articles...">
-                    </div>
-                    <div class="category-filters">
-                        <button class="category-btn active" data-category="all">All</button>
-                        <button class="category-btn" data-category="innovation">Innovation</button>
-                        <button class="category-btn" data-category="sustainability">Sustainability</button>
-                        <button class="category-btn" data-category="company">Company News</button>
-                    </div>
-                </div>
-
-                <div class="news-grid">
-                    <article class="news-card animate-on-scroll" data-category="innovation">
-                        <div class="news-image">
-                            <img src="/images/news/news-1.jpg" alt="Innovation News">
-                            <span class="category-tag">Innovation</span>
-                        </div>
-                        <div class="news-content">
-                            <div class="news-meta">
-                                <span class="date">March 15, 2024</span>
-                                <span class="read-time">5 min read</span>
-                            </div>
-                            <h3>New AI-Powered Growth Optimization System</h3>
-                            <p>Introducing our latest innovation in plant growth monitoring...</p>
-                            <a href="#" class="read-more">Read More →</a>
-                        </div>
-                    </article>
-                    <!-- More news cards -->
-                </div>
-
-                <div class="pagination">
-                    <button class="prev-page">←</button>
-                    <div class="page-numbers">
-                        <span class="active">1</span>
-                        <span>2</span>
-                        <span>3</span>
-                    </div>
-                    <button class="next-page">→</button>
-                </div>
-            </div>
+        <section class="news-container">
+            <!-- News cards will be dynamically loaded here -->
         </section>
 
-        <section class="newsletter-signup">
-            <div class="container">
-                <div class="newsletter-content animate-on-scroll">
-                    <h2>Stay Updated</h2>
-                    <p>Subscribe to our newsletter for the latest updates and insights</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Enter your email" required>
-                        <button type="submit" class="btn">Subscribe</button>
-                    </form>
-                </div>
-            </div>
+        <section class="newsletter-section">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest updates delivered directly to your inbox</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
         </section>
     </main>
-    <!-- Include footer -->
-    <script src="/js/news.js"></script>
+
+    <footer>
+        <!-- Include your footer here -->
+    </footer>
+
+    <script src="../js/news.js"></script>
 </body>
 </html> 
