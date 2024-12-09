@@ -1,0 +1,33 @@
+{
+    "projects": [
+        {
+            "id": "dubai-mega-farm",
+            "title": "Dubai Mega Farm",
+            "location": "Dubai, UAE",
+            "category": "commercial",
+            "area": "5000m²",
+            "status": "operational",
+            "completionDate": "2023",
+            "thumbnail": "/images/projects/dubai-mega-farm-thumb.jpg",
+            "mainImage": "/images/projects/dubai-mega-farm.jpg",
+            "gallery": [
+                "/images/projects/dubai-mega-farm-1.jpg",
+                "/images/projects/dubai-mega-farm-2.jpg",
+                "/images/projects/dubai-mega-farm-3.jpg"
+            ],
+            "description": "Our flagship commercial vertical farming facility in Dubai, producing fresh vegetables for local supermarkets and restaurants.",
+            "highlights": [
+                "500 tons annual production",
+                "95% water savings",
+                "100% renewable energy",
+                "Zero pesticides"
+            ],
+            "technologies": [
+                "AI-powered climate control",
+                "Advanced hydroponics",
+                "LED growth lighting",
+                "Automated harvesting"
+            ]
+        }
+    ]
+} 

@@ -1,0 +1,31 @@
+{
+    "hotspots": [
+        {
+            "id": "ai-monitoring",
+            "title": "AI Monitoring",
+            "description": "24/7 plant health monitoring using advanced AI algorithms",
+            "position": {
+                "top": "30%",
+                "left": "20%"
+            }
+        },
+        {
+            "id": "led-system",
+            "title": "Smart LED System",
+            "description": "Optimized spectrum lighting for maximum growth efficiency",
+            "position": {
+                "top": "45%",
+                "left": "60%"
+            }
+        },
+        {
+            "id": "hydroponics",
+            "title": "Advanced Hydroponics",
+            "description": "Precision nutrient delivery and water recycling system",
+            "position": {
+                "top": "70%",
+                "left": "40%"
+            }
+        }
+    ]
+} 

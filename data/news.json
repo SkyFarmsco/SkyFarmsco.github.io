@@ -1,0 +1,16 @@
+{
+    "articles": [
+        {
+            "id": "new-dubai-facility",
+            "title": "SkyFarms Opens New Research Facility in Dubai",
+            "category": "company",
+            "date": "2024-03-15",
+            "author": "Sarah Johnson",
+            "thumbnail": "/images/news/research-facility-thumb.jpg",
+            "mainImage": "/images/news/research-facility.jpg",
+            "excerpt": "State-of-the-art research center focuses on developing next-generation vertical farming technologies.",
+            "content": "SkyFarms is proud to announce the opening of our new research facility...",
+            "tags": ["research", "innovation", "dubai"]
+        }
+    ]
+} 

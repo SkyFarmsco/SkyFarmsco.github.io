@@ -1,0 +1,31 @@
+{
+    "leadership": [
+        {
+            "id": "sarah-johnson",
+            "name": "Sarah Johnson",
+            "position": "CEO & Founder",
+            "image": "/images/team/sarah-johnson.jpg",
+            "bio": "20+ years experience in AgTech and sustainable development",
+            "social": {
+                "linkedin": "https://linkedin.com/in/sarah-johnson",
+                "twitter": "https://twitter.com/sarahjohnson"
+            }
+        }
+    ],
+    "departments": {
+        "engineering": [
+            {
+                "name": "Michael Chen",
+                "position": "Chief Technology Officer",
+                "image": "/images/team/michael-chen.jpg"
+            }
+        ],
+        "agriculture": [
+            {
+                "name": "Dr. Emma Williams",
+                "position": "Head of Plant Science",
+                "image": "/images/team/emma-williams.jpg"
+            }
+        ]
+    }
+} 

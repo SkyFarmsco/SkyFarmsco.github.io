@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/animations.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
+    <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="./css/themes/light.css" id="theme-stylesheet" />
 </head>
 <body>
@@ -91,6 +92,113 @@
                     </div>
                     <p>Clean Energy</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Showcase -->
+    <section class="solutions-showcase section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title animate-on-scroll">Complete Farming Solutions</h2>
+                <p class="section-subtitle">Tailored vertical farming systems for every scale</p>
+            </div>
+            <div class="solutions-slider">
+                <div class="solution-cards">
+                    <div class="solution-card animate-on-scroll">
+                        <div class="solution-image">
+                            <img src="/images/solutions/compact.jpg" alt="SkyFarm Compact">
+                            <div class="solution-overlay">
+                                <span class="solution-tag">Most Popular</span>
+                            </div>
+                        </div>
+                        <div class="solution-content">
+                            <h3>SkyFarm Compact</h3>
+                            <p>Perfect for restaurants and small businesses</p>
+                            <ul class="solution-features">
+                                <li>Up to 100m² growing area</li>
+                                <li>Automated climate control</li>
+                                <li>IoT monitoring system</li>
+                            </ul>
+                            <a href="/pages/products.html#compact" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                    <!-- More solution cards -->
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-prev" aria-label="Previous slide">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <div class="slider-dots"></div>
+                    <button class="slider-next" aria-label="Next slide">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="testimonials-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title animate-on-scroll">What Our Clients Say</h2>
+                <p class="section-subtitle">Success stories from our partners</p>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Testimonials will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="news-section section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title animate-on-scroll">Latest Updates</h2>
+                <p class="section-subtitle">Stay informed about our latest developments</p>
+            </div>
+            <div class="news-grid">
+                <!-- News cards will be loaded dynamically -->
+            </div>
+            <div class="text-center">
+                <a href="/pages/news.html" class="btn btn-outline">View All News</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title animate-on-scroll">Our Partners</h2>
+                <p class="section-subtitle">Working together for sustainable agriculture</p>
+            </div>
+            <div class="partners-slider">
+                <div class="partners-track">
+                    <!-- Partner logos will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section parallax" data-speed="0.3">
+        <div class="container">
+            <div class="newsletter-content text-center">
+                <h2 class="animate-on-scroll">Stay Updated</h2>
+                <p>Subscribe to our newsletter for the latest updates and insights</p>
+                <form class="newsletter-form animate-on-scroll">
+                    <div class="form-group">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                    <p class="form-note">By subscribing, you agree to our Privacy Policy</p>
+                </form>
             </div>
         </div>
     </section>
@@ -221,6 +329,11 @@
     <script type="module" src="./js/slider.js"></script>
     <script type="module" src="./js/parallax.js"></script>
     <script type="module" src="./js/theme.js"></script>
+    <script type="module" src="./js/home.js"></script>
     <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/components/Testimonial.js"></script>
+    <script type="module" src="./js/components/NewsCard.js"></script>
+    <script type="module" src="./js/services/testimonialService.js"></script>
+    <script type="module" src="./js/services/newsService.js"></script>
 </body>
 </html>
