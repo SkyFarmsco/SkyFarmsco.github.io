@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://skyfarmsco.github.io/sitemap.xml 
