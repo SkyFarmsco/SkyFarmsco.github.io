@@ -95,4 +95,55 @@ circleItems.forEach(item => {
   item.addEventListener('mouseleave', () => {
     item.style.transform = 'scale(1)';
   });
-}); 
+});
+
+// Add smooth parallax effect
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  const parallaxElements = document.querySelectorAll('.solution-image');
+  
+  parallaxElements.forEach(element => {
+    const speed = 0.5;
+    element.style.transform = `translateY(${scrolled * speed}px)`;
+  });
+});
+
+// Add tilt effect to cards
+const cards = document.querySelectorAll('.challenge-card');
+cards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = (y - centerY) / 10;
+    const rotateY = (centerX - x) / 10;
+    
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+  });
+});
+
+// Add scroll indicator functionality
+const scrollIndicator = document.querySelector('.scroll-indicator');
+if (scrollIndicator) {
+  scrollIndicator.addEventListener('click', () => {
+    const nextSection = document.querySelector('#challenge');
+    nextSection.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+// Add dynamic text effect to hero title
+const heroTitle = document.querySelector('.hero h1');
+if (heroTitle) {
+  const text = heroTitle.textContent;
+  heroTitle.innerHTML = text.split('').map(char => 
+    `<span style="display: inline-block; animation: float ${Math.random() * 2 + 1}s ease-in-out infinite">${char}</span>`
+  ).join('');
+} 
