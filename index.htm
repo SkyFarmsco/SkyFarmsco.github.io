@@ -6,7 +6,7 @@
     <title>SkyFarms Startup</title>
     <style>
       /* Fonts */
-      @import url("https://fonts.googleapis.com/css2?family=Axiforma:wght@400;500;600&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Axiforma:wght@400;500;600&family=Montserrat:wght@400;600;700&display=swap");
 
       :root {
         --primary-color: #04724d; /* Bangladesh Green */
@@ -14,7 +14,7 @@
         --accent-color: #000814; /* Rich Black */
         --text-color: #333;
         --bg-light: #f5f5f5;
-        --font-base: "Axiforma", sans-serif;
+        --font-base: "Montserrat", sans-serif;
       }
 
       * {
@@ -25,168 +25,153 @@
 
       body {
         font-family: var(--font-base);
-        line-height: 1.6;
+        line-height: 1.8;
         color: var(--text-color);
         background-color: var(--bg-light);
       }
 
+      /* Header */
       header {
         background: var(--accent-color);
         color: white;
         padding: 1rem 2rem;
-        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
 
-      nav {
+      header nav {
         display: flex;
-        justify-content: center;
         gap: 1.5rem;
       }
 
-      nav a {
+      header nav a {
         color: white;
         text-decoration: none;
-        font-weight: 500;
+        font-weight: 600;
         transition: color 0.3s ease;
       }
 
-      nav a:hover {
+      header nav a:hover {
         color: var(--secondary-color);
       }
 
       .hero {
-        background: url("https://source.unsplash.com/1600x900/?farm,greenery") center/cover;
+        position: relative;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+          url("https://source.unsplash.com/1600x900/?greenhouse,farm") center/cover;
         color: white;
         text-align: center;
-        padding: 5rem 1rem;
+        padding: 7rem 1rem;
       }
 
       .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
       }
 
       .hero p {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         margin-bottom: 2rem;
       }
 
       .hero button {
         background: var(--secondary-color);
-        color: var(--accent-color);
+        color: white;
         border: none;
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
+        padding: 0.75rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
         cursor: pointer;
-        transition: background 0.3s;
+        transition: background 0.3s ease;
       }
 
       .hero button:hover {
         background: var(--primary-color);
       }
 
-      section {
-        padding: 2rem 1rem;
+      /* Features Section */
+      .features {
+        display: flex;
+        justify-content: space-around;
+        padding: 4rem 2rem;
         text-align: center;
       }
 
-      .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .features .card {
-        background: white;
+      .feature {
+        flex: 1;
         padding: 2rem;
-        border-radius: 8px;
+        margin: 0 1rem;
+        background: white;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        transition: transform 0.3s ease;
       }
 
-      .contact {
-        background: var(--primary-color);
-        color: white;
+      .feature:hover {
+        transform: translateY(-10px);
       }
 
-      .contact form input,
-      .contact form textarea {
-        width: 100%;
+      .feature h3 {
         margin-bottom: 1rem;
-        padding: 0.75rem;
-        border: none;
-        border-radius: 4px;
+        color: var(--primary-color);
+        font-size: 1.5rem;
       }
 
+      .feature p {
+        font-size: 1rem;
+      }
+
+      /* Footer */
       footer {
         background: var(--accent-color);
         color: white;
         text-align: center;
-        padding: 1rem;
+        padding: 1.5rem;
+        margin-top: 2rem;
       }
     </style>
   </head>
   <body>
-    <!-- Header -->
     <header>
-      <h1>SkyFarms</h1>
+      <div class="logo">
+        <h2>SkyFarms</h2>
+      </div>
       <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
       </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <h1>Welcome to SkyFarms</h1>
-      <p>Innovating sustainable agriculture for a better tomorrow.</p>
-      <button>Learn More</button>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-      <h2>About Us</h2>
-      <p>
-        SkyFarms is revolutionizing agriculture with vertical farming and
-        sustainable solutions.
-      </p>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services">
-      <h2>Our Services</h2>
-      <div class="features">
-        <div class="card">
-          <h3>Vertical Farming</h3>
-          <p>Innovative vertical solutions for urban spaces.</p>
-        </div>
-        <div class="card">
-          <h3>Sustainability</h3>
-          <p>Creating eco-friendly and green solutions.</p>
-        </div>
-        <div class="card">
-          <h3>Technology</h3>
-          <p>Leveraging AI and IoT to optimize agriculture.</p>
-        </div>
+    <section class="hero">
+      <div>
+        <h1>Revolutionizing Modern Agriculture</h1>
+        <p>Innovative solutions for sustainable and efficient farming</p>
+        <button>Learn More</button>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-      <h2>Contact Us</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows="5"></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+    <section class="features">
+      <div class="feature">
+        <h3>Greenhouses</h3>
+        <p>High-tech greenhouses designed for optimal yield and energy efficiency.</p>
+      </div>
+      <div class="feature">
+        <h3>Vertical Farms</h3>
+        <p>Space-saving vertical farms to grow crops in urban environments.</p>
+      </div>
+      <div class="feature">
+        <h3>Smart Irrigation</h3>
+        <p>AI-driven irrigation systems to conserve water and maximize production.</p>
+      </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-      <p>&copy; 2024 SkyFarms. All rights reserved.</p>
+      <p>&copy; 2024 SkyFarms. All Rights Reserved.</p>
     </footer>
   </body>
 </html>
