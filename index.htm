@@ -133,67 +133,57 @@
         letter-spacing: 1px;
       }
 
-      .about {
-        background: white;
-        transition: background-color 0.3s;
-      }
-
-      .about:hover {
-        background-color: var(--bg-light);
-      }
-
-      .services {
+      .our-crops {
         background: var(--bg-light);
+        position: relative;
+        text-align: center;
       }
 
-      .services .service-item {
-        display: inline-block;
-        width: 30%;
-        padding: 1rem;
-        margin: 1rem;
+      .our-crops .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .our-crops .crop {
         background: white;
         box-shadow: 0 4px 6px var(--shadow-light);
-        border-radius: 8px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .services .service-item:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 6px 10px var(--shadow-dark);
-      }
-
-      .gallery img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-        box-shadow: 0 4px 6px var(--shadow-light);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 50%;
+        padding: 2rem;
+        max-width: 220px;
+        text-align: center;
+        transition: transform 0.3s;
         cursor: pointer;
       }
 
-      .gallery img:hover {
-        transform: scale(1.05);
+      .our-crops .crop:hover {
+        transform: scale(1.1);
         box-shadow: 0 6px 12px var(--shadow-dark);
       }
 
-      .testimonials {
+      .our-crops .crop img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 1rem;
+      }
+
+      .our-crops .crop p {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      .crop-details {
+        display: none;
+        padding: 2rem;
         background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px var(--shadow-light);
       }
 
-      .testimonials blockquote {
-        font-style: italic;
-        color: var(--accent-color);
-        margin: 1.5rem 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .testimonials blockquote:hover {
-        opacity: 0.8;
-      }
-
-      .contact {
-        background: var(--bg-light);
+      .crop-details.active {
+        display: block;
       }
 
       footer {
@@ -256,10 +246,31 @@
       </div>
     </section>
 
-    <section id="gallery" class="gallery">
-      <h2>Our Projects</h2>
-      <img src="https://source.unsplash.com/600x400/?plants,greenhouse" alt="Gallery Image 1" />
-      <img src="https://source.unsplash.com/600x400/?farm,agriculture" alt="Gallery Image 2" />
+    <section id="our-crops" class="our-crops">
+      <h2>Our Crops</h2>
+      <div class="content">
+        <div class="crop" onclick="showDetails('fresh')">
+          <img src="/Fresh Produce.jpeg" alt="Fresh Produce" />
+          <p>Fresh</p>
+        </div>
+        <div class="crop" onclick="showDetails('local')">
+          <img src="/Local Produce.jpeg" alt="Local Produce" />
+          <p>Local</p>
+        </div>
+        <div class="crop" onclick="showDetails('diverse')">
+          <img src="/Diverse Produce.jpeg" alt="Diverse Produce" />
+          <p>Diverse</p>
+        </div>
+      </div>
+      <div id="fresh" class="crop-details">
+        <p>SkyFarms grows leafy greens (lettuce, spinach, kale), aromatic herbs (basil, mint), and vegetables (tomatoes, cucumbers).</p>
+      </div>
+      <div id="local" class="crop-details">
+        <p>Our hydroponic and aeroponic systems require 90% less water than traditional farming.</p>
+      </div>
+      <div id="diverse" class="crop-details">
+        <p>Thanks to climate-controlled vertical farms, we provide consistent harvests regardless of external weather conditions.</p>
+      </div>
     </section>
 
     <section id="testimonials" class="testimonials">
@@ -276,5 +287,13 @@
     <footer>
       <p>&copy; 2024 SkyFarms. All Rights Reserved.</p>
     </footer>
+
+    <script>
+      function showDetails(id) {
+        const details = document.querySelectorAll('.crop-details');
+        details.forEach((detail) => detail.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+      }
+    </script>
   </body>
 </html>
