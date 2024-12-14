@@ -47,6 +47,18 @@
         box-shadow: 0 2px 4px var(--shadow-dark);
       }
 
+      header .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      header .logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
       header nav {
         display: flex;
         gap: 1.5rem;
@@ -204,7 +216,10 @@
   </head>
   <body>
     <header>
-      <div class="logo">SkyFarms</div>
+      <div class="logo">
+        <img src="/logo.png" alt="Logo" />
+        <span>SkyFarms</span>
+      </div>
       <nav>
         <a href="#about">About Us</a>
         <a href="#services">Services</a>
@@ -255,7 +270,7 @@
 
     <section id="contact" class="contact">
       <h2>Contact Us</h2>
-      <p>Email: info@skyfarms.com | Phone: +1 (123) 456-7890</p>
+      <p>Email: skyfarms0@gamil.com | Phone: +212 762389821</p>
     </section>
 
     <footer>
