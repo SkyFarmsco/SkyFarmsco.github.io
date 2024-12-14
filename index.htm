@@ -1,573 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyFarms - Feeding Tomorrow's Cities</title>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkyFarms Startup</title>
+    <style>
+      /* Fonts */
+      @import url("https://fonts.googleapis.com/css2?family=Axiforma:wght@400;500;600&display=swap");
+
+      :root {
+        --primary-color: #04724d; /* Bangladesh Green */
+        --secondary-color: #00c49a; /* Caribbean Green */
+        --accent-color: #000814; /* Rich Black */
+        --text-color: #333;
+        --bg-light: #f5f5f5;
+        --font-base: "Axiforma", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-base);
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--bg-light);
+      }
+
+      header {
+        background: var(--accent-color);
+        color: white;
+        padding: 1rem 2rem;
+        text-align: center;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: var(--secondary-color);
+      }
+
+      .hero {
+        background: url("https://source.unsplash.com/1600x900/?farm,greenery") center/cover;
+        color: white;
+        text-align: center;
+        padding: 5rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .hero button {
+        background: var(--secondary-color);
+        color: var(--accent-color);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .hero button:hover {
+        background: var(--primary-color);
+      }
+
+      section {
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .features .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .contact form input,
+      .contact form textarea {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 4px;
+      }
+
+      footer {
+        background: var(--accent-color);
+        color: white;
+        text-align: center;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
     <header>
-        <nav>
-            <div class="logo">
-                <a href="/index.htm">SkyFarms</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="about.html">About</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="technology.html">Technology</a></li>
-                <li><a href="sustainability.html">Sustainability</a></li>
-                <li><a href="careers.html">Careers</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
+      <h1>SkyFarms</h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content" data-aos="fade-up">
-                <h1 class="glitch-text">Feeding Tomorrow's Cities</h1>
-                <p class="typing-text">Sustainable urban farming solutions for a better future</p>
-                <a href="#about" class="cta-button hover-effect">Discover More</a>
-            </div>
-            <div class="hero-background">
-                <div class="particles-container" id="particles-js"></div>
-                <video autoplay loop muted playsinline class="hero-video">
-                    <source src="assets/hero-bg.mp4" type="video/mp4">
-                </video>
-            </div>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <h1>Welcome to SkyFarms</h1>
+      <p>Innovating sustainable agriculture for a better tomorrow.</p>
+      <button>Learn More</button>
+    </section>
 
-        <section id="about" class="about-section">
-            <div class="about-container">
-                <div class="mission-vision">
-                    <h2>Our Mission</h2>
-                    <p class="mission-text">"Feeding Tomorrow's Cities" isn't just our slogan—it's our commitment to revolutionizing urban agriculture through sustainable, local food production that reduces transportation emissions, minimizes water consumption, and ensures access to fresh, healthy food for all.</p>
-                    
-                    <h2>Our Vision</h2>
-                    <p class="vision-text">We envision a future where vertical farms are seamlessly integrated into urban architecture, where every building, neighborhood, and district has access to its own sustainable food source, creating truly resilient cities.</p>
-                </div>
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        SkyFarms is revolutionizing agriculture with vertical farming and
+        sustainable solutions.
+      </p>
+    </section>
 
-                <div class="journey">
-                    <h2>Our Journey</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="year">2019</span>
-                            <p>A group of Moroccan agronomists and urban planners identified a critical need: reducing food import dependency and addressing water scarcity in arid regions.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="year">2020</span>
-                            <p>First prototype greenhouse successfully launched, incorporating IoT sensors and AI-driven climate control.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="year">2024</span>
-                            <p>Expanded to multiple cities, with integrated solar technology and advanced water recycling systems.</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Services Section -->
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="features">
+        <div class="card">
+          <h3>Vertical Farming</h3>
+          <p>Innovative vertical solutions for urban spaces.</p>
+        </div>
+        <div class="card">
+          <h3>Sustainability</h3>
+          <p>Creating eco-friendly and green solutions.</p>
+        </div>
+        <div class="card">
+          <h3>Technology</h3>
+          <p>Leveraging AI and IoT to optimize agriculture.</p>
+        </div>
+      </div>
+    </section>
 
-                <div class="values">
-                    <h2>Our Core Values</h2>
-                    <div class="values-grid">
-                        <div class="value-card">
-                            <div class="value-icon">🌱</div>
-                            <h3>Sustainability</h3>
-                            <p>Minimizing ecological footprint through resource recycling and biodiversity preservation</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">💡</div>
-                            <h3>Innovation</h3>
-                            <p>Continuous R&D and partnerships with research laboratories to pioneer new growing techniques</p>
-                        </div>
-                        <div class="value-card">
-                            <div class="value-icon">🤝</div>
-                            <h3>Social Impact</h3>
-                            <p>Creating local jobs and training the next generation of urban farmers</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" rows="5"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
 
-                <div class="founders">
-                    <h2>Meet Our Founders</h2>
-                    <div class="founders-grid">
-                        <div class="founder-card">
-                            <div class="founder-image founder-1"></div>
-                            <h3>Sarah El-Mansouri</h3>
-                            <p class="founder-title">Agricultural Engineer & CEO</p>
-                            <p class="founder-quote">"The future of farming is growing up, not out."</p>
-                        </div>
-                        <div class="founder-card">
-                            <div class="founder-image founder-2"></div>
-                            <h3>Karim Benali</h3>
-                            <p class="founder-title">Urban Planning Expert & COO</p>
-                            <p class="founder-quote">"Cities should feed their people, not the other way around."</p>
-                        </div>
-                        <div class="founder-card">
-                            <div class="founder-image founder-3"></div>
-                            <h3>Yasmine Tazi</h3>
-                            <p class="founder-title">Technology Director & CTO</p>
-                            <p class="founder-quote">"Technology and nature aren't opposites—they're partners."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="careers" class="careers-section">
-            <div class="careers-container">
-                <h2>Join Our Green Revolution</h2>
-                <p class="careers-intro">At SkyFarms, we're not just growing food—we're cultivating innovation, sustainability, and the future of urban agriculture.</p>
-                
-                <div class="culture-grid">
-                    <div class="culture-card">
-                        <div class="culture-icon">🌿</div>
-                        <h3>Green Workspace</h3>
-                        <p>Work from our rooftop garden office, surrounded by the very innovation we're developing</p>
-                    </div>
-                    <div class="culture-card">
-                        <div class="culture-icon">🔬</div>
-                        <h3>Innovation Hub</h3>
-                        <p>Regular experimentation with cutting-edge agricultural technologies</p>
-                    </div>
-                    <div class="culture-card">
-                        <div class="culture-icon">🎓</div>
-                        <h3>Continuous Learning</h3>
-                        <p>Access to international conferences, workshops, and specialized training</p>
-                    </div>
-                </div>
-
-                <div class="open-positions">
-                    <h3>Current Opportunities</h3>
-                    <div class="positions-grid">
-                        <div class="position-card">
-                            <h4>Hydroponic Systems Engineer</h4>
-                            <p class="location">📍 Casablanca, Morocco</p>
-                            <ul class="requirements">
-                                <li>5+ years in hydroponic systems</li>
-                                <li>Experience with IoT integration</li>
-                                <li>Master's in Agricultural Engineering</li>
-                            </ul>
-                            <a href="#" class="apply-button">Apply Now</a>
-                        </div>
-                        <div class="position-card">
-                            <h4>Urban Agriculture Specialist</h4>
-                            <p class="location">📍 Remote</p>
-                            <ul class="requirements">
-                                <li>3+ years in vertical farming</li>
-                                <li>Project management experience</li>
-                                <li>Sustainability certification</li>
-                            </ul>
-                            <a href="#" class="apply-button">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="news" class="news-section">
-            <div class="news-container">
-                <h2>Latest Updates</h2>
-                <div class="news-grid">
-                    <article class="news-card featured">
-                        <div class="news-image"></div>
-                        <div class="news-content">
-                            <span class="news-date">March 15, 2024</span>
-                            <h3>SkyFarms Launches Largest Vertical Farm in North Africa</h3>
-                            <p>Our new 5,000m² facility in Rabat will produce over 1,000 tons of fresh produce annually.</p>
-                            <a href="#" class="read-more">Read More →</a>
-                        </div>
-                    </article>
-                    <article class="news-card">
-                        <div class="news-content">
-                            <span class="news-date">March 1, 2024</span>
-                            <h3>Partnership with Leading Hotels Group</h3>
-                            <p>Bringing farm-to-table dining to luxury hospitality.</p>
-                            <a href="#" class="read-more">Read More →</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section">
-            <div class="contact-container">
-                <h2>Get in Touch</h2>
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="info-card">
-                            <div class="info-icon">📍</div>
-                            <h3>Visit Us</h3>
-                            <p>Tech Park, Route de Nouaceur<br>Casablanca, Morocco</p>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-icon">📧</div>
-                            <h3>Email Us</h3>
-                            <p>info@skyfarms.com</p>
-                        </div>
-                        <div class="info-card">
-                            <div class="info-icon">📱</div>
-                            <h3>Call Us</h3>
-                            <p>+212 522 XXX XXX</p>
-                        </div>
-                    </div>
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <select required>
-                                <option value="">Select Inquiry Type</option>
-                                <option value="partnership">Partnership</option>
-                                <option value="careers">Careers</option>
-                                <option value="press">Press</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-button">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <section id="products" class="products-section">
-            <div class="products-container">
-                <h2>Our Growing Solutions</h2>
-                <p class="products-intro">From rooftop gardens to full-scale vertical farms, our modular solutions adapt to any urban environment.</p>
-
-                <div class="product-categories">
-                    <div class="category-card">
-                        <div class="category-image skybox-image"></div>
-                        <div class="category-content">
-                            <h3>SkyBox™ Modular Farms</h3>
-                            <p>Stackable hydroponic units designed for maximum yield in minimal space.</p>
-                            <ul class="features-list">
-                                <li>🌱 40m² growing area per module</li>
-                                <li>💧 90% less water usage</li>
-                                <li>🔋 Solar-powered options</li>
-                                <li>📱 Smart monitoring system</li>
-                            </ul>
-                            <a href="#contact" class="product-cta">Request Quote</a>
-                        </div>
-                    </div>
-
-                    <div class="product-grid">
-                        <div class="product-card">
-                            <div class="product-icon">🏢</div>
-                            <h4>Rooftop Solutions</h4>
-                            <p>Transform unused roof space into thriving urban farms</p>
-                            <ul class="specs-list">
-                                <li>Custom designs for any roof</li>
-                                <li>Lightweight systems</li>
-                                <li>Weather-resistant</li>
-                            </ul>
-                        </div>
-
-                        <div class="product-card">
-                            <div class="product-icon">🌿</div>
-                            <h4>Indoor Vertical Systems</h4>
-                            <p>Maximum yield in climate-controlled environments</p>
-                            <ul class="specs-list">
-                                <li>LED growing lights</li>
-                                <li>Automated nutrient delivery</li>
-                                <li>Year-round production</li>
-                            </ul>
-                        </div>
-
-                        <div class="product-card">
-                            <div class="product-icon">🤖</div>
-                            <h4>Smart Control Systems</h4>
-                            <p>AI-powered monitoring and management</p>
-                            <ul class="specs-list">
-                                <li>Real-time monitoring</li>
-                                <li>Predictive maintenance</li>
-                                <li>Mobile app control</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="case-studies">
-                    <h3>Success Stories</h3>
-                    <div class="cases-grid">
-                        <div class="case-card">
-                            <div class="case-image hotel-case"></div>
-                            <div class="case-content">
-                                <h4>Luxury Hotel Chain</h4>
-                                <p>Rooftop farm providing fresh herbs and vegetables</p>
-                                <ul class="results-list">
-                                    <li>300kg monthly produce</li>
-                                    <li>$45,000 annual savings</li>
-                                    <li>Zero food miles</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="case-card">
-                            <div class="case-image market-case"></div>
-                            <div class="case-content">
-                                <h4>Urban Supermarket</h4>
-                                <p>In-store vertical farming system</p>
-                                <ul class="results-list">
-                                    <li>Fresh produce daily</li>
-                                    <li>95% less water usage</li>
-                                    <li>Zero waste policy</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="projects-section">
-            <div class="projects-container">
-                <h2>Global Impact</h2>
-                <p class="projects-intro">From Morocco to Dubai, our vertical farming solutions are transforming urban agriculture across the globe.</p>
-
-                <div class="featured-project">
-                    <div class="project-image casablanca-image"></div>
-                    <div class="project-content">
-                        <h3>Casablanca Green Tower</h3>
-                        <p class="project-description">Our flagship project integrates vertical farming into a 20-story commercial building, producing fresh vegetables for local restaurants and markets.</p>
-                        <div class="impact-metrics">
-                            <div class="metric">
-                                <span class="metric-number">2,500</span>
-                                <span class="metric-label">kg Monthly Yield</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-number">85%</span>
-                                <span class="metric-label">Water Saved</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-number">50+</span>
-                                <span class="metric-label">Local Jobs Created</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image dubai-image"></div>
-                        <div class="card-content">
-                            <h4>Dubai Smart Farm</h4>
-                            <p>Desert-adapted vertical farming system</p>
-                            <ul class="achievement-list">
-                                <li>🌡️ Heat-resistant design</li>
-                                <li>🔋 100% solar-powered</li>
-                                <li>💧 95% water recycling</li>
-                            </ul>
-                            <a href="#" class="project-link">View Project →</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image dakar-image"></div>
-                        <div class="card-content">
-                            <h4>Dakar Community Farm</h4>
-                            <p>Educational and production facility</p>
-                            <ul class="achievement-list">
-                                <li>👨‍🌾 200+ farmers trained</li>
-                                <li>🏫 School program partner</li>
-                                <li>🤝 NGO collaboration</li>
-                            </ul>
-                            <a href="#" class="project-link">View Project →</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image jakarta-image"></div>
-                        <div class="card-content">
-                            <h4>Jakarta Research Hub</h4>
-                            <p>R&D center for tropical agriculture</p>
-                            <ul class="achievement-list">
-                                <li>🔬 University partnership</li>
-                                <li>🌱 New crop varieties</li>
-                                <li>📊 Data sharing platform</li>
-                            </ul>
-                            <a href="#" class="project-link">View Project →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonials">
-                    <h3>Partner Testimonials</h3>
-                    <div class="testimonials-grid">
-                        <div class="testimonial-card">
-                            <img src="chef-testimonial.jpg" alt="Chef Ahmed" class="testimonial-image">
-                            <blockquote>
-                                "The quality and consistency of produce from SkyFarms has transformed our farm-to-table concept."
-                            </blockquote>
-                            <cite>- Chef Ahmed, Michelin-starred Restaurant</cite>
-                        </div>
-                        <div class="testimonial-card">
-                            <img src="ngo-testimonial.jpg" alt="Dr. Sarah" class="testimonial-image">
-                            <blockquote>
-                                "SkyFarms' technology has helped us create sustainable food security in urban areas."
-                            </blockquote>
-                            <cite>- Dr. Sarah, Food Security NGO</cite>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="sustainability" class="sustainability-section">
-            <div class="sustainability-container">
-                <h2>Our Commitment to Sustainability</h2>
-                <p class="sustainability-intro">At SkyFarms, sustainability isn't just a goal—it's the foundation of everything we do.</p>
-
-                <div class="sdg-grid">
-                    <div class="sdg-card">
-                        <div class="sdg-icon">🌾</div>
-                        <h3>Zero Hunger (SDG 2)</h3>
-                        <p>Providing accessible, nutritious food in urban areas</p>
-                        <ul class="impact-list">
-                            <li>500,000+ meals produced monthly</li>
-                            <li>30% below market prices</li>
-                            <li>Zero food waste policy</li>
-                        </ul>
-                    </div>
-                    <div class="sdg-card">
-                        <div class="sdg-icon">♻️</div>
-                        <h3>Responsible Consumption (SDG 12)</h3>
-                        <ul class="impact-list">
-                            <li>90% water recycling</li>
-                            <li>100% renewable energy</li>
-                            <li>Zero pesticides used</li>
-                        </ul>
-                    </div>
-                    <div class="sdg-card">
-                        <div class="sdg-icon">🌡️</div>
-                        <h3>Climate Action (SDG 13)</h3>
-                        <ul class="impact-list">
-                            <li>-75% carbon footprint vs. traditional farming</li>
-                            <li>Zero food miles</li>
-                            <li>Carbon-neutral operations by 2025</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="certifications">
-                    <h3>Our Certifications</h3>
-                    <div class="cert-grid">
-                        <div class="cert-card">
-                            <img src="organic-cert.jpg" alt="Organic Certification">
-                            <h4>Organic Certified</h4>
-                        </div>
-                        <div class="cert-card">
-                            <img src="iso-cert.jpg" alt="ISO 14001">
-                            <h4>ISO 14001:2015</h4>
-                        </div>
-                        <div class="cert-card">
-                            <img src="bcorp-cert.jpg" alt="B Corp">
-                            <h4>B Corporation</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="technology" class="technology-section">
-            <div class="technology-container">
-                <h2>Innovation at Our Core</h2>
-                <p class="tech-intro">Our proprietary technology combines IoT, AI, and advanced agricultural science to revolutionize urban farming.</p>
-
-                <div class="tech-showcase">
-                    <div class="swiper tech-slider">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="tech-card" data-aos="zoom-in">
-                                    <div class="tech-visual">
-                                        <video autoplay loop muted>
-                                            <source src="hydroponic-system.mp4" type="video/mp4">
-                                        </video>
-                                    </div>
-                                    <div class="tech-content">
-                                        <h3>Advanced Hydroponic Systems</h3>
-                                        <p>Nutrient-rich water circulation optimized by AI for maximum yield and resource efficiency.</p>
-                                        <ul class="tech-specs">
-                                            <li>Real-time nutrient monitoring</li>
-                                            <li>Automated pH balancing</li>
-                                            <li>Predictive maintenance</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="tech-card" data-aos="zoom-in">
-                                    <div class="tech-visual">
-                                        <video autoplay loop muted>
-                                            <source src="hydroponic-system.mp4" type="video/mp4">
-                                        </video>
-                                    </div>
-                                    <div class="tech-content">
-                                        <h3>Advanced Hydroponic Systems</h3>
-                                        <p>Nutrient-rich water circulation optimized by AI for maximum yield and resource efficiency.</p>
-                                        <ul class="tech-specs">
-                                            <li>Real-time nutrient monitoring</li>
-                                            <li>Automated pH balancing</li>
-                                            <li>Predictive maintenance</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
-
-                <div class="research-partners">
-                    <h3>Research Partners</h3>
-                    <div class="partners-grid">
-                        <div class="partner-logo"><img src="university-logo.png" alt="University Partner"></div>
-                        <div class="partner-logo"><img src="research-lab-logo.png" alt="Research Lab"></div>
-                        <div class="partner-logo"><img src="tech-startup-logo.png" alt="Tech Startup"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>Email: info@skyfarms.com</p>
-                <p>Phone: +XXX XXX XXX</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#" target="_blank">LinkedIn</a>
-                    <a href="#" target="_blank">Twitter</a>
-                    <a href="#" target="_blank">Instagram</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 SkyFarms. All rights reserved.</p>
-        </div>
+      <p>&copy; 2024 SkyFarms. All rights reserved.</p>
     </footer>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="/java.js"></script>
-</body>
+  </body>
 </html>
