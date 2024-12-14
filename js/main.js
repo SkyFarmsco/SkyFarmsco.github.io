@@ -77,4 +77,22 @@ const observer = new IntersectionObserver((entries) => {
 const statsSection = document.querySelector('.hero-stats');
 if (statsSection) {
   observer.observe(statsSection);
-} 
+}
+
+// Animate circle items on scroll
+const circleItems = document.querySelectorAll('.circle-item');
+circleItems.forEach((item, index) => {
+  item.style.transitionDelay = `${index * 0.2}s`;
+});
+
+// Optional: Add hover effect to circle items
+circleItems.forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    item.style.transform = 'scale(1.05)';
+    item.style.transition = 'transform 0.3s ease';
+  });
+  
+  item.addEventListener('mouseleave', () => {
+    item.style.transform = 'scale(1)';
+  });
+}); 
