@@ -15,6 +15,8 @@
         --text-color: #333;
         --bg-light: #f5f5f5;
         --font-base: "Montserrat", sans-serif;
+        --shadow-light: rgba(0, 0, 0, 0.1);
+        --shadow-dark: rgba(0, 0, 0, 0.2);
       }
 
       * {
@@ -28,6 +30,7 @@
         line-height: 1.8;
         color: var(--text-color);
         background-color: var(--bg-light);
+        scroll-behavior: smooth;
       }
 
       /* Header */
@@ -38,6 +41,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 4px var(--shadow-dark);
       }
 
       header nav {
@@ -63,111 +70,192 @@
         color: white;
         text-align: center;
         padding: 7rem 1rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .hero:hover {
+        transform: scale(1.02);
       }
 
       .hero h1 {
         font-size: 3.5rem;
         margin-bottom: 1.5rem;
-        font-weight: 700;
-        line-height: 1.2;
+        animation: fadeIn 1.5s ease-in-out;
       }
 
       .hero p {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         margin-bottom: 2rem;
+        animation: fadeIn 2s ease-in-out;
       }
 
-      .hero button {
+      .btn-primary {
+        display: inline-block;
         background: var(--secondary-color);
         color: white;
-        border: none;
-        padding: 0.75rem 2rem;
-        font-size: 1.1rem;
+        padding: 0.75rem 1.5rem;
+        text-decoration: none;
         font-weight: 600;
-        cursor: pointer;
-        transition: background 0.3s ease;
+        border-radius: 5px;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 6px var(--shadow-light);
       }
 
-      .hero button:hover {
+      .btn-primary:hover {
         background: var(--primary-color);
+        box-shadow: 0 6px 10px var(--shadow-dark);
       }
 
-      /* Features Section */
-      .features {
-        display: flex;
-        justify-content: space-around;
+      /* Sections */
+      section {
         padding: 4rem 2rem;
         text-align: center;
       }
 
-      .feature {
-        flex: 1;
-        padding: 2rem;
-        margin: 0 1rem;
+      section h2 {
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .about {
         background: white;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s;
+      }
+
+      .about:hover {
+        background-color: var(--bg-light);
+      }
+
+      .services {
+        background: var(--bg-light);
+      }
+
+      .services .service-item {
+        display: inline-block;
+        width: 30%;
+        padding: 1rem;
+        margin: 1rem;
+        background: white;
+        box-shadow: 0 4px 6px var(--shadow-light);
         border-radius: 8px;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
-      .feature:hover {
+      .services .service-item:hover {
         transform: translateY(-10px);
+        box-shadow: 0 6px 10px var(--shadow-dark);
       }
 
-      .feature h3 {
+      .gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
         margin-bottom: 1rem;
-        color: var(--primary-color);
-        font-size: 1.5rem;
+        box-shadow: 0 4px 6px var(--shadow-light);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
       }
 
-      .feature p {
-        font-size: 1rem;
+      .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px var(--shadow-dark);
       }
 
-      /* Footer */
+      .testimonials {
+        background: white;
+      }
+
+      .testimonials blockquote {
+        font-style: italic;
+        color: var(--accent-color);
+        margin: 1.5rem 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .testimonials blockquote:hover {
+        opacity: 0.8;
+      }
+
+      .contact {
+        background: var(--bg-light);
+      }
+
       footer {
         background: var(--accent-color);
         color: white;
         text-align: center;
-        padding: 1.5rem;
-        margin-top: 2rem;
+        padding: 1rem;
+        box-shadow: 0 -2px 4px var(--shadow-dark);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
     </style>
   </head>
   <body>
     <header>
-      <div class="logo">
-        <h2>SkyFarms</h2>
-      </div>
+      <div class="logo">SkyFarms</div>
       <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
-    <section class="hero">
-      <div>
-        <h1>Revolutionizing Modern Agriculture</h1>
-        <p>Innovative solutions for sustainable and efficient farming</p>
-        <button>Learn More</button>
+    <div class="hero">
+      <h1>Welcome to SkyFarms</h1>
+      <p>Revolutionizing the future of sustainable farming</p>
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+    </div>
+
+    <section id="about" class="about">
+      <h2>About Us</h2>
+      <p>At SkyFarms, we are committed to transforming agriculture through innovation and sustainability.</p>
+    </section>
+
+    <section id="services" class="services">
+      <h2>Our Services</h2>
+      <div class="service-item">
+        <h3>Vertical Farming</h3>
+        <p>Maximize yields with minimal space using advanced farming techniques.</p>
+      </div>
+      <div class="service-item">
+        <h3>Hydroponics</h3>
+        <p>Soil-free farming for cleaner, faster, and more sustainable growth.</p>
+      </div>
+      <div class="service-item">
+        <h3>Smart Monitoring</h3>
+        <p>Track plant health and optimize conditions with IoT technology.</p>
       </div>
     </section>
 
-    <section class="features">
-      <div class="feature">
-        <h3>Greenhouses</h3>
-        <p>High-tech greenhouses designed for optimal yield and energy efficiency.</p>
-      </div>
-      <div class="feature">
-        <h3>Vertical Farms</h3>
-        <p>Space-saving vertical farms to grow crops in urban environments.</p>
-      </div>
-      <div class="feature">
-        <h3>Smart Irrigation</h3>
-        <p>AI-driven irrigation systems to conserve water and maximize production.</p>
-      </div>
+    <section id="gallery" class="gallery">
+      <h2>Our Projects</h2>
+      <img src="https://source.unsplash.com/600x400/?plants,greenhouse" alt="Gallery Image 1" />
+      <img src="https://source.unsplash.com/600x400/?farm,agriculture" alt="Gallery Image 2" />
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <h2>Testimonials</h2>
+      <blockquote>"SkyFarms has transformed how we approach urban agriculture. Truly revolutionary!"</blockquote>
+      <p>- John Doe, AgriTech Innovators</p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact Us</h2>
+      <p>Email: info@skyfarms.com | Phone: +1 (123) 456-7890</p>
     </section>
 
     <footer>
