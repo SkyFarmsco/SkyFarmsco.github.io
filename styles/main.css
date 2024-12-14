@@ -24,6 +24,10 @@
   /* Typography */
   --font-base: 'Axiforma', sans-serif;
   --transition: all 0.3s ease;
+  
+  /* Fix missing color variables */
+  --primary-color: var(--caribbean-green);
+  --accent-color: var(--dark-green);
 }
 
 * {
@@ -93,7 +97,7 @@ body {
 }
 
 .nav-links a:hover {
-  color: var(--primary-color);
+  color: var(--caribbean-green);
 }
 
 .nav-cta {
@@ -178,13 +182,14 @@ body {
 
 .stat-item h3 {
   font-size: 2.5rem;
-  color: var(--primary-color);
+  color: var(--caribbean-green);
 }
 
 /* Challenge Section */
 .challenge {
   padding: 5rem 2rem;
-  background: var(--bg-light);
+  background: var(--rich-black);
+  color: var(--white);
 }
 
 .section-header {
@@ -217,17 +222,18 @@ body {
 }
 
 .challenge-card {
-  background: white;
+  background: var(--dark-green);
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: var(--transition);
   text-align: center;
+  color: var(--white);
 }
 
 .challenge-card i {
   font-size: 2.5rem;
-  color: var(--primary-color);
+  color: var(--caribbean-green);
   margin-bottom: 1.5rem;
 }
 
@@ -263,7 +269,7 @@ body {
 
 .feature i {
   font-size: 2rem;
-  color: var(--primary-color);
+  color: var(--caribbean-green);
 }
 
 /* Crops Section */
@@ -416,12 +422,17 @@ body {
     transform: translateY(0);
     background: linear-gradient(transparent, rgba(2, 2, 17, 0.9));
   }
+
+  .nav-links {
+    background: var(--rich-black);
+    border-top: 1px solid var(--dark-green);
+  }
 }
 
 /* Footer */
 .footer {
-  background: var(--accent-color);
-  color: white;
+  background: var(--dark-green);
+  color: var(--white);
   padding: 4rem 2rem 1rem;
 }
 
@@ -446,7 +457,7 @@ body {
 }
 
 .social-links a:hover {
-  color: var(--primary-color);
+  color: var(--caribbean-green);
 }
 
 .footer-bottom {
@@ -468,10 +479,11 @@ body {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--accent-color);
+    background: var(--rich-black);
     padding: 2rem;
     flex-direction: column;
     text-align: center;
+    border-top: 1px solid var(--dark-green);
   }
 
   .nav-links.active {
