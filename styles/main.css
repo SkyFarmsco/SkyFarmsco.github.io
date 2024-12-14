@@ -28,6 +28,12 @@
   /* Fix missing color variables */
   --primary-color: var(--caribbean-green);
   --accent-color: var(--dark-green);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: rgba(0, 0, 0, 0.1);
+  --blur-amount: 10px;
 }
 
 * {
@@ -46,7 +52,10 @@ body {
 
 /* Header Styles */
 .header {
-  background: transparent;
+  background: rgba(2, 2, 17, 0.3);
+  backdrop-filter: blur(var(--blur-amount));
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  border-bottom: 1px solid var(--glass-border);
   padding: 2rem 5%;
   position: fixed;
   width: 100%;
@@ -58,7 +67,7 @@ body {
 }
 
 .header.scrolled {
-  background: var(--rich-black);
+  background: rgba(2, 2, 17, 0.8);
   padding: 1rem 5%;
 }
 
@@ -199,11 +208,14 @@ body {
 }
 
 .section-header h2 {
-  font-size: 3rem;
-  color: var(--text-light);
-  margin-bottom: 1rem;
-  font-weight: 600;
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, var(--white) 0%, var(--caribbean-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
 }
 
 .section-header p {
@@ -222,13 +234,33 @@ body {
 }
 
 .challenge-card {
-  background: var(--dark-green);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-amount));
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+  position: relative;
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: var(--transition);
   text-align: center;
   color: var(--white);
+}
+
+.challenge-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  pointer-events: none;
 }
 
 .challenge-card i {
@@ -240,6 +272,21 @@ body {
 /* Solution Section */
 .solution {
   padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.solution::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: var(--caribbean-green);
+  filter: blur(150px);
+  opacity: 0.2;
+  top: -100px;
+  left: -100px;
+  pointer-events: none;
 }
 
 .solution-showcase {
@@ -270,6 +317,7 @@ body {
 .feature i {
   font-size: 2rem;
   color: var(--caribbean-green);
+  text-shadow: 0 0 10px var(--caribbean-green);
 }
 
 /* Crops Section */
@@ -310,6 +358,10 @@ body {
 }
 
 .crop-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-amount));
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid var(--glass-border);
   position: relative;
   height: 300px;
   overflow: hidden;
@@ -331,7 +383,12 @@ body {
   left: 0;
   right: 0;
   padding: 2rem;
-  background: linear-gradient(transparent, var(--rich-black));
+  background: linear-gradient(
+    transparent,
+    rgba(2, 2, 17, 0.8)
+  );
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   color: var(--white);
   transform: translateY(100%);
   transition: transform 0.3s ease;
@@ -360,16 +417,20 @@ body {
 }
 
 .feature-box {
-  background: var(--dark-green);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur-amount));
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid var(--glass-border);
   padding: 2rem;
   border-radius: 15px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .feature-box:hover {
   transform: translateY(-10px);
-  background: var(--bangladesh-green);
+  background: rgba(18, 140, 126, 0.2);
+  border-color: var(--caribbean-green);
 }
 
 .feature-icon {
@@ -381,11 +442,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: float 3s ease-in-out infinite;
 }
 
 .feature-icon i {
   font-size: 1.5rem;
   color: var(--rich-black);
+  text-shadow: 0 0 10px var(--caribbean-green);
 }
 
 .feature-box h4 {
