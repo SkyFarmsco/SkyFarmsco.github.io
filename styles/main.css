@@ -1622,3 +1622,75 @@ body::before {
         text-align: center;
     }
 } 
+
+/* Policy Pages Styles */
+.policy-content {
+    padding: 120px 20px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--white);
+}
+
+.policy-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--caribbean-green);
+}
+
+.policy-content section {
+    margin: 2rem 0;
+}
+
+.policy-content h2 {
+    color: var(--mountain-meadow);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.policy-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--pistachio);
+}
+
+.policy-content ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--pistachio);
+}
+
+.policy-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .policy-content {
+        padding: 100px 15px 40px;
+    }
+    
+    .policy-content h1 {
+        font-size: 2rem;
+    }
+} 
+
+/* Add these styles to your footer section in main.css */
+.footer-links {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.footer-links a {
+    color: var(--pistachio);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--caribbean-green);
+}
+
+.footer-links span {
+    color: var(--pistachio);
+    margin: 0 1rem;
+} 
