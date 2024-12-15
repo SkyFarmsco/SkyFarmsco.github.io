@@ -34,7 +34,10 @@
         <div class="hero-main">
           <div class="brand-name">
             <h1><span class="sky">Sky</span><span class="farms">Farms</span></h1>
-            <span class="tagline">Elevating Urban Agriculture</span>
+            <div class="tagline-wrapper">
+              <span class="tagline">Elevating Urban Agriculture</span>
+              <div class="tagline-decoration"></div>
+            </div>
           </div>
           <p class="hero-description">Revolutionary vertical farming solutions transforming urban spaces into sustainable food ecosystems</p>
           <div class="hero-cta">
@@ -44,44 +47,59 @@
         </div>
 
         <div class="hero-stats-container">
-          <div class="stats-grid">
-            <div class="stat-card glass-effect" data-aos="fade-up" data-aos-delay="100">
-              <div class="stat-content">
-                <div class="stat-value">
-                  <span class="counter">90</span>
-                  <span class="unit">%</span>
-                </div>
-                <div class="stat-label">Less Water Consumption</div>
-              </div>
-              <div class="stat-icon">
+          <div class="stats-wrapper">
+            <div class="stats-card glass-effect" data-aos="fade-up">
+              <div class="stats-icon">
                 <i class="fas fa-tint"></i>
               </div>
+              <div class="stats-content">
+                <div class="stats-number">
+                  <span class="counter" data-target="90">0</span>
+                  <span class="percent">%</span>
+                </div>
+                <h3>Less Water</h3>
+                <p>Water Conservation</p>
+              </div>
+              <svg class="circle-progress">
+                <circle class="circle-bg" cx="50%" cy="50%" r="45%"/>
+                <circle class="circle-fill" cx="50%" cy="50%" r="45%"/>
+              </svg>
             </div>
 
-            <div class="stat-card glass-effect" data-aos="fade-up" data-aos-delay="200">
-              <div class="stat-content">
-                <div class="stat-value">
-                  <span class="counter">75</span>
-                  <span class="unit">%</span>
+            <div class="stats-card glass-effect" data-aos="fade-up" data-aos-delay="200">
+              <div class="stats-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <div class="stats-content">
+                <div class="stats-number">
+                  <span class="counter" data-target="75">0</span>
+                  <span class="percent">%</span>
                 </div>
-                <div class="stat-label">Reduced Land Usage</div>
+                <h3>Space Saved</h3>
+                <p>Land Efficiency</p>
               </div>
-              <div class="stat-icon">
-                <i class="fas fa-seedling"></i>
-              </div>
+              <svg class="circle-progress">
+                <circle class="circle-bg" cx="50%" cy="50%" r="45%"/>
+                <circle class="circle-fill" cx="50%" cy="50%" r="45%"/>
+              </svg>
             </div>
 
-            <div class="stat-card glass-effect" data-aos="fade-up" data-aos-delay="300">
-              <div class="stat-content">
-                <div class="stat-value">
-                  <span class="counter">10</span>
-                  <span class="unit">x</span>
-                </div>
-                <div class="stat-label">Higher Crop Yield</div>
-              </div>
-              <div class="stat-icon">
+            <div class="stats-card glass-effect" data-aos="fade-up" data-aos-delay="400">
+              <div class="stats-icon">
                 <i class="fas fa-chart-line"></i>
               </div>
+              <div class="stats-content">
+                <div class="stats-number">
+                  <span class="counter" data-target="10">0</span>
+                  <span class="multiplier">x</span>
+                </div>
+                <h3>Yield Increase</h3>
+                <p>Production Boost</p>
+              </div>
+              <svg class="circle-progress">
+                <circle class="circle-bg" cx="50%" cy="50%" r="45%"/>
+                <circle class="circle-fill" cx="50%" cy="50%" r="45%"/>
+              </svg>
             </div>
           </div>
         </div>

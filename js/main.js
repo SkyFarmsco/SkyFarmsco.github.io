@@ -146,4 +146,42 @@ if (heroTitle) {
   heroTitle.innerHTML = text.split('').map(char => 
     `<span style="display: inline-block; animation: float ${Math.random() * 2 + 1}s ease-in-out infinite">${char}</span>`
   ).join('');
+}
+
+// Counter animation function
+function animateCounter(counter) {
+  const target = parseInt(counter.getAttribute('data-target'));
+  const duration = 2000; // 2 seconds
+  const steps = 50;
+  const stepValue = target / steps;
+  let current = 0;
+  
+  const timer = setInterval(() => {
+    current += stepValue;
+    if (current >= target) {
+      counter.textContent = target;
+      clearInterval(timer);
+    } else {
+      counter.textContent = Math.round(current);
+    }
+  }, duration / steps);
+}
+
+// Intersection Observer for counters
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counters = entry.target.querySelectorAll('.counter');
+      counters.forEach(counter => animateCounter(counter));
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.5
+});
+
+// Observe stats container
+const statsContainer = document.querySelector('.hero-stats-container');
+if (statsContainer) {
+  counterObserver.observe(statsContainer);
 } 
