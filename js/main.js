@@ -125,54 +125,87 @@ if (scrollIndicator) {
 const contactForm = document.querySelector('.contact-form');
 const submitButton = contactForm.querySelector('button[type="submit"]');
 
-// Update your form submission handling
-contactForm.addEventListener('submit', function(event) {
+// Update the form submission handling
+contactForm.addEventListener('submit', async function(event) {
+    // Prevent default form submission behavior
     event.preventDefault();
+    event.stopPropagation();
     
-    // Show loading state
-    submitButton.disabled = true;
-    submitButton.innerHTML = 'Sending...';
-    
-    const templateParams = {
-        name: this.name.value,
-        email: this.email.value,
-        message: this.message.value
-    };
+    try {
+        // Show loading state
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span class="btn-text">Sending...</span>';
+        
+        const templateParams = {
+            from_name: this.user_name.value,
+            from_email: this.user_email.value,
+            message: this.message.value,
+            to_name: 'SkyFarms'
+        };
 
-    emailjs.send('service_ecua0zk', 'template_nmkfmwm', templateParams)
-        .then(function() {
-            // Show success message
-            showNotification('Message sent successfully!', 'success');
-            
-            // Reset form
-            contactForm.reset();
-        })
-        .catch(function(error) {
-            // Show error message
-            showNotification('Failed to send message. Please try again.', 'error');
-            console.error('EmailJS error:', error);
-        })
-        .finally(function() {
-            // Reset button state
-            submitButton.disabled = false;
-            submitButton.innerHTML = 'Send Message';
-        });
+        // Use Promise with timeout to handle the EmailJS send
+        const response = await Promise.race([
+            emailjs.send('service_ecua0zk', 'template_nmkfmwm', templateParams),
+            new Promise((_, reject) => 
+                setTimeout(() => reject(new Error('Request timeout')), 10000)
+            )
+        ]);
+
+        console.log('SUCCESS!', response.status, response.text);
+        showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+        this.reset();
+        
+    } catch (error) {
+        console.error('FAILED...', error);
+        showNotification('Failed to send message. Please try again.', 'error');
+        
+    } finally {
+        // Reset button state
+        submitButton.disabled = false;
+        submitButton.innerHTML = '<span class="btn-text">Send Message</span>';
+    }
+    
+    // Prevent any form submission behavior
+    return false;
 });
 
-// Add this function to handle notifications
+// Also update the button click handler to prevent default behavior
+submitButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+});
+
+// Update the notification function to ensure visibility
 function showNotification(message, type) {
+    // Remove any existing notifications
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
     // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
-    notification.textContent = message;
+    
+    // Add icon based on type
+    const icon = type === 'success' ? 'check-circle' : 'exclamation-circle';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas fa-${icon}"></i>
+            <span>${message}</span>
+        </div>
+    `;
     
     // Add to document
     document.body.appendChild(notification);
     
+    // Force a reflow to ensure the animation works
+    notification.offsetHeight;
+    
     // Trigger animation
-    setTimeout(() => {
+    requestAnimationFrame(() => {
         notification.classList.add('show');
-    }, 100);
+    });
     
     // Remove after delay
     setTimeout(() => {
@@ -180,7 +213,7 @@ function showNotification(message, type) {
         setTimeout(() => {
             notification.remove();
         }, 300);
-    }, 3000);
+    }, 5000);
 }
 
 // Add smooth reveal for impact cards
