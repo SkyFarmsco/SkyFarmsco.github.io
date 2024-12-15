@@ -20,7 +20,3 @@ A modern, responsive website for SkyFarms - an innovative vertical farming compa
 - [AOS](https://michalsnik.github.io/aos/) - Animate On Scroll Library
 - [Font Awesome](https://fontawesome.com/) - Icons
 - [EmailJS](https://www.emailjs.com/) - Email Service Integration
-
-## Getting Started
-
-1. Clone the repository: 

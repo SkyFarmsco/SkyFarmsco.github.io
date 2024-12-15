@@ -116,13 +116,17 @@ if (scrollIndicator) {
   });
 }
 
+// At the top of main.js, initialize EmailJS
+(function() {
+  emailjs.init("XCp6619L0--fbgEbj"); // Keep your existing public key
+})();
+
 // Form submission handling
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Show loading state
     const button = this.querySelector('button');
     const buttonText = button.querySelector('.btn-text');
     const spinner = button.querySelector('.loading-spinner');
@@ -131,32 +135,27 @@ if (contactForm) {
     buttonText.style.opacity = '0';
     spinner.style.display = 'block';
 
-    // Prepare the email parameters
     const templateParams = {
       from_name: this.user_name.value,
       from_email: this.user_email.value,
       message: this.message.value,
-      to_name: 'SkyFarms', // Your company name
+      to_name: 'SkyFarms',
     };
 
-    // Send the email using EmailJS
     emailjs.send(
-      'service_xxxxxxx', // Replace with your Service ID
-      'template_xxxxxxx', // Replace with your Template ID
+      'service_qdmulas', // Your provided Service ID
+      'template_nmkfmwm', // Your provided Template ID
       templateParams
     )
     .then(() => {
-      // Show success message
       showNotification('Message sent successfully!', 'success');
       this.reset();
     })
     .catch((error) => {
-      // Show error message
       showNotification('Failed to send message. Please try again.', 'error');
       console.error('Email error:', error);
     })
     .finally(() => {
-      // Reset button state
       button.disabled = false;
       buttonText.style.opacity = '1';
       spinner.style.display = 'none';
