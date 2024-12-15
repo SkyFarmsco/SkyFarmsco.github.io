@@ -139,7 +139,7 @@ contactForm.addEventListener('submit', function(event) {
         message: this.message.value
     };
 
-    emailjs.send('service_qdmulas', 'template_nmkfmwm', templateParams)
+    emailjs.send('service_ecua0zk', 'template_nmkfmwm', templateParams)
         .then(function() {
             // Show success message
             showNotification('Message sent successfully!', 'success');
