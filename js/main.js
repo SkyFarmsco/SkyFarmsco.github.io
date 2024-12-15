@@ -118,74 +118,69 @@ if (scrollIndicator) {
 
 // At the top of main.js, initialize EmailJS
 (function() {
-  emailjs.init("XCp6619L0--fbgEbj"); // Keep your existing public key
+  emailjs.init("XCp6619L0--fbgEbj"); // Your public key is correctly set
 })();
 
-// Form submission handling
+// Add these variables at the top of your file
 const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const button = this.querySelector('button');
-    const buttonText = button.querySelector('.btn-text');
-    const spinner = button.querySelector('.loading-spinner');
-    
-    button.disabled = true;
-    buttonText.style.opacity = '0';
-    spinner.style.display = 'block';
+const submitButton = contactForm.querySelector('button[type="submit"]');
 
+// Update your form submission handling
+contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Show loading state
+    submitButton.disabled = true;
+    submitButton.innerHTML = 'Sending...';
+    
     const templateParams = {
-      from_name: this.user_name.value,
-      from_email: this.user_email.value,
-      message: this.message.value,
-      to_name: 'SkyFarms',
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
     };
 
-    emailjs.send(
-      'service_qdmulas', // Your provided Service ID
-      'template_nmkfmwm', // Your provided Template ID
-      templateParams
-    )
-    .then(() => {
-      showNotification('Message sent successfully!', 'success');
-      this.reset();
-    })
-    .catch((error) => {
-      showNotification('Failed to send message. Please try again.', 'error');
-      console.error('Email error:', error);
-    })
-    .finally(() => {
-      button.disabled = false;
-      buttonText.style.opacity = '1';
-      spinner.style.display = 'none';
-    });
-  });
-}
+    emailjs.send('service_qdmulas', 'template_nmkfmwm', templateParams)
+        .then(function() {
+            // Show success message
+            showNotification('Message sent successfully!', 'success');
+            
+            // Reset form
+            contactForm.reset();
+        })
+        .catch(function(error) {
+            // Show error message
+            showNotification('Failed to send message. Please try again.', 'error');
+            console.error('EmailJS error:', error);
+        })
+        .finally(function() {
+            // Reset button state
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Send Message';
+        });
+});
 
-// Notification function
+// Add this function to handle notifications
 function showNotification(message, type) {
-  const notification = document.createElement('div');
-  notification.className = `notification ${type}`;
-  notification.innerHTML = `
-    <div class="notification-content">
-      <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-      <span>${message}</span>
-    </div>
-  `;
-  
-  document.body.appendChild(notification);
-  
-  // Animate in
-  setTimeout(() => {
-    notification.classList.add('show');
-  }, 100);
-  
-  // Remove after 3 seconds
-  setTimeout(() => {
-    notification.classList.remove('show');
-    setTimeout(() => notification.remove(), 300);
-  }, 3000);
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    // Add to document
+    document.body.appendChild(notification);
+    
+    // Trigger animation
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    // Remove after delay
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
 }
 
 // Add smooth reveal for impact cards
