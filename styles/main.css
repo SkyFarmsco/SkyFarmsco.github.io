@@ -52,11 +52,6 @@ body {
 
 /* Header Styles */
 .header {
-  background: rgba(2, 2, 17, 0.3);
-  backdrop-filter: blur(var(--blur-amount));
-  -webkit-backdrop-filter: blur(var(--blur-amount));
-  border-bottom: 1px solid var(--glass-border);
-  padding: 2rem 5%;
   position: fixed;
   width: 100%;
   z-index: 1000;
@@ -64,6 +59,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: rgba(2, 2, 17, 0.3);
+  backdrop-filter: blur(var(--blur-amount));
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  border-bottom: 1px solid var(--glass-border);
+  padding: 2rem 5%;
 }
 
 .header.scrolled {
@@ -1693,4 +1693,83 @@ body::before {
 .footer-links span {
     color: var(--pistachio);
     margin: 0 1rem;
+} 
+
+/* Update the LED light effects with stronger glow */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;  /* Slightly thicker line */
+  background: linear-gradient(
+    90deg,
+    #9d4edd,  /* Purple */
+    #00E676,  /* Green */
+    #9d4edd   /* Purple */
+  );
+  box-shadow: 
+    0 0 10px #9d4edd,
+    0 0 20px #00E676,
+    0 0 30px #9d4edd,
+    0 0 40px #9d4edd,
+    0 0 50px #00E676;
+  animation: lightPulse 3s ease-in-out infinite;
+  z-index: 1000;
+  opacity: 0.95;  /* Slightly more opaque */
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;  /* Slightly thicker secondary line */
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 50px,
+    rgba(157, 78, 221, 0.7) 50px,  /* More opaque purple */
+    rgba(0, 230, 118, 0.7) 100px   /* More opaque green */
+  );
+  animation: lightMove 8s linear infinite;
+  opacity: 0.8;  /* Increased opacity */
+  z-index: 999;
+}
+
+@keyframes lightPulse {
+  0% {
+    opacity: 0.9;
+    box-shadow: 
+      0 0 15px #9d4edd,
+      0 0 25px #00E676,
+      0 0 35px #9d4edd;
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 
+      0 0 20px #9d4edd,
+      0 0 30px #00E676,
+      0 0 40px #9d4edd,
+      0 0 50px #00E676,
+      0 0 60px #9d4edd;
+  }
+  100% {
+    opacity: 0.9;
+    box-shadow: 
+      0 0 15px #9d4edd,
+      0 0 25px #00E676,
+      0 0 35px #9d4edd;
+  }
+}
+
+@keyframes lightMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 0;
+  }
 } 
