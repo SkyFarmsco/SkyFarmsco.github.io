@@ -23,80 +23,6 @@ menuToggle.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.nav-menu') && navLinks.classList.contains('active')) {
-    navLinks.classList.remove('active');
-  }
-});
-
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth'
-      });
-      // Close mobile menu after clicking
-      navLinks.classList.remove('active');
-    }
-  });
-});
-
-// Add animation to stats when they come into view
-const stats = document.querySelectorAll('.stat-item h3');
-const animateStats = () => {
-  stats.forEach(stat => {
-    const value = parseInt(stat.textContent);
-    let current = 0;
-    const increment = value / 30;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= value) {
-        clearInterval(timer);
-        stat.textContent = value + (stat.textContent.includes('x') ? 'x' : '%');
-      } else {
-        stat.textContent = Math.round(current) + (stat.textContent.includes('x') ? 'x' : '%');
-      }
-    }, 50);
-  });
-};
-
-// Trigger stats animation when in view
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateStats();
-      observer.unobserve(entry.target);
-    }
-  });
-});
-
-const statsSection = document.querySelector('.hero-stats');
-if (statsSection) {
-  observer.observe(statsSection);
-}
-
-// Animate circle items on scroll
-const circleItems = document.querySelectorAll('.circle-item');
-circleItems.forEach((item, index) => {
-  item.style.transitionDelay = `${index * 0.2}s`;
-});
-
-// Optional: Add hover effect to circle items
-circleItems.forEach(item => {
-  item.addEventListener('mouseenter', () => {
-    item.style.transform = 'scale(1.05)';
-    item.style.transition = 'transform 0.3s ease';
-  });
-  
-  item.addEventListener('mouseleave', () => {
-    item.style.transform = 'scale(1)';
-  });
-});
-
 // Add smooth parallax effect
 window.addEventListener('scroll', () => {
   const scrolled = window.pageYOffset;
@@ -130,24 +56,6 @@ cards.forEach(card => {
   });
 });
 
-// Add scroll indicator functionality
-const scrollIndicator = document.querySelector('.scroll-indicator');
-if (scrollIndicator) {
-  scrollIndicator.addEventListener('click', () => {
-    const nextSection = document.querySelector('#challenge');
-    nextSection.scrollIntoView({ behavior: 'smooth' });
-  });
-}
-
-// Add dynamic text effect to hero title
-const heroTitle = document.querySelector('.hero h1');
-if (heroTitle) {
-  const text = heroTitle.textContent;
-  heroTitle.innerHTML = text.split('').map(char => 
-    `<span style="display: inline-block; animation: float ${Math.random() * 2 + 1}s ease-in-out infinite">${char}</span>`
-  ).join('');
-}
-
 // Counter animation function
 function animateCounter(counter) {
   const target = parseInt(counter.getAttribute('data-target'));
@@ -167,21 +75,129 @@ function animateCounter(counter) {
   }, duration / steps);
 }
 
-// Intersection Observer for counters
-const counterObserver = new IntersectionObserver((entries) => {
+// Create Intersection Observer for stats
+const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const counters = entry.target.querySelectorAll('.counter');
       counters.forEach(counter => animateCounter(counter));
-      counterObserver.unobserve(entry.target);
+      statsObserver.unobserve(entry.target);
     }
   });
-}, {
-  threshold: 0.5
-});
+}, { threshold: 0.5 });
 
 // Observe stats container
-const statsContainer = document.querySelector('.hero-stats-container');
+const statsContainer = document.querySelector('.hero-stats');
 if (statsContainer) {
-  counterObserver.observe(statsContainer);
-} 
+  statsObserver.observe(statsContainer);
+}
+
+// Smooth scroll for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth'
+      });
+      // Close mobile menu after clicking
+      navLinks.classList.remove('active');
+    }
+  });
+});
+
+// Add scroll indicator functionality
+const scrollIndicator = document.querySelector('.scroll-indicator');
+if (scrollIndicator) {
+  scrollIndicator.addEventListener('click', () => {
+    const nextSection = document.querySelector('#challenge');
+    nextSection.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+// Form submission handling
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    const button = this.querySelector('button');
+    const buttonText = button.querySelector('.btn-text');
+    const spinner = button.querySelector('.loading-spinner');
+    
+    button.disabled = true;
+    buttonText.style.opacity = '0';
+    spinner.style.display = 'block';
+
+    // Prepare the email parameters
+    const templateParams = {
+      from_name: this.user_name.value,
+      from_email: this.user_email.value,
+      message: this.message.value,
+      to_name: 'SkyFarms', // Your company name
+    };
+
+    // Send the email using EmailJS
+    emailjs.send(
+      'service_xxxxxxx', // Replace with your Service ID
+      'template_xxxxxxx', // Replace with your Template ID
+      templateParams
+    )
+    .then(() => {
+      // Show success message
+      showNotification('Message sent successfully!', 'success');
+      this.reset();
+    })
+    .catch((error) => {
+      // Show error message
+      showNotification('Failed to send message. Please try again.', 'error');
+      console.error('Email error:', error);
+    })
+    .finally(() => {
+      // Reset button state
+      button.disabled = false;
+      buttonText.style.opacity = '1';
+      spinner.style.display = 'none';
+    });
+  });
+}
+
+// Notification function
+function showNotification(message, type) {
+  const notification = document.createElement('div');
+  notification.className = `notification ${type}`;
+  notification.innerHTML = `
+    <div class="notification-content">
+      <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+      <span>${message}</span>
+    </div>
+  `;
+  
+  document.body.appendChild(notification);
+  
+  // Animate in
+  setTimeout(() => {
+    notification.classList.add('show');
+  }, 100);
+  
+  // Remove after 3 seconds
+  setTimeout(() => {
+    notification.classList.remove('show');
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
+}
+
+// Add smooth reveal for impact cards
+const impactCards = document.querySelectorAll('.impact-card');
+impactCards.forEach((card, index) => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(20px)';
+  
+  setTimeout(() => {
+    card.style.transition = 'all 0.5s ease';
+    card.style.opacity = '1';
+    card.style.transform = 'translateY(0)';
+  }, 200 * index);
+});
